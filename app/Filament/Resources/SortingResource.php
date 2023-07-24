@@ -25,6 +25,17 @@ class SortingResource extends Resource
     protected static ?string $model = Sorting::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationGroup = 'Sortings';
+    protected static bool $shouldRegisterNavigation = false;
+    protected $queryString = [
+        'tableFilters',
+        'tableSortColumn',
+        'tableSortDirection',
+        'tableSearchQuery' => ['except' => ''],
+        'tableColumnSearchQueries',
+    ];
+
+
 
     public static function form(Form $form): Form
     {
@@ -40,12 +51,18 @@ class SortingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('post.location'),
-                Tables\Columns\TextColumn::make('post.short_title'),
+                Tables\Columns\TextColumn::make('post.location')->label('Manşet'),
+                Tables\Columns\TextColumn::make('post.short_title')->label('Kısa Başlık'),
                 Tables\Columns\TextColumn::make('post.created_at')->sortable(),
             ])
             ->filters([
-//
+//              Filter::make('location')->query(fn (Builder $query): Builder => $query->where('location', '=', 0))->label('Manşet Yeri')->default()
+                SelectFilter::make('location')
+                    ->options([
+                        1 => 'Manşet',
+                        2 => 'Sağ Manşet',
+                    ])->default(request()->get('location'))
+
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
@@ -55,7 +72,7 @@ class SortingResource extends Resource
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
-            ])->defaultSort('post.created_at', 'desc');
+            ])->defaultSort('post.created_at', 'desc')->reorderable('order');
     }
 
     public static function getRelations(): array
@@ -73,4 +90,9 @@ class SortingResource extends Resource
             'edit' => Pages\EditSorting::route('/{record}/edit'),
         ];
     }
+
+//    public static function getEloquentQuery(): Builder
+//    {
+//        return parent::getEloquentQuery()->where('location', request()->get('location'));
+//    }
 }

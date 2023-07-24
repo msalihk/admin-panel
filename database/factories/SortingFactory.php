@@ -18,6 +18,7 @@ class SortingFactory extends Factory
     public function definition(): array
     {
         return [
+            'location' => rand(1, 2),
             'post_id' => Post::factory()
         ];
     }
