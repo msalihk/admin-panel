@@ -24,7 +24,7 @@ class SortingResource extends Resource
 {
     protected static ?string $model = Sorting::class;
 
-    protected static ?string $navigationIcon = 'heroicon-o-collection';
+    protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
     protected static ?string $navigationGroup = 'Sortings';
     protected static bool $shouldRegisterNavigation = false;
     protected $queryString = [
@@ -51,14 +51,14 @@ class SortingResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('post.location')->label('Manşet'),
+                Tables\Columns\TextColumn::make('location')->label('Manşet'),
                 Tables\Columns\TextColumn::make('post.short_title')->label('Kısa Başlık'),
                 Tables\Columns\TextColumn::make('post.created_at')->sortable(),
             ])
             ->filters([
-//              Filter::make('location')->query(fn (Builder $query): Builder => $query->where('location', '=', 0))->label('Manşet Yeri')->default()
                 SelectFilter::make('location')
                     ->options([
+                        0 => 'Normal',
                         1 => 'Manşet',
                         2 => 'Sağ Manşet',
                     ])->default(request()->get('location'))

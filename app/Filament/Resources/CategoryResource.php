@@ -3,7 +3,6 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\CategoryResource\Pages;
-use App\Filament\Resources\CategoryResource\RelationManagers;
 use App\Models\Category;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -18,15 +17,17 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
+    protected static ?string $navigationLabel = 'Kategoriler';
+
     protected static ?string $navigationIcon = 'heroicon-o-collection';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\Toggle::make('is_active')->required(),
-                Forms\Components\Toggle::make('is_shown_in_footer')->required()
+                Forms\Components\TextInput::make('name')->label('İsim')->required(),
+                Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
+                Forms\Components\Toggle::make('is_shown_in_footer')->label("Footer'da göster")->required()
             ]);
     }
 
@@ -34,18 +35,18 @@ class CategoryResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\IconColumn::make('is_active')->boolean(),
-                Tables\Columns\IconColumn::make('is_shown_in_footer')->boolean()
+                Tables\Columns\TextColumn::make('name')->label('Ad')->searchable(),
+                Tables\Columns\IconColumn::make('is_active')->label('Aktif')->boolean(),
+                Tables\Columns\IconColumn::make('is_shown_in_footer')->label("Footer'da görünme")->boolean()
             ])
             ->filters([
                 Filter::make('is_active')
-                    ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
+                    ->query(fn (Builder $query): Builder => $query->where('is_active', true))->label('Aktif olanlar'),
                 Filter::make('is_shown_in_footer')
-                    ->query(fn (Builder $query): Builder => $query->where('is_shown_in_footer', true))
+                    ->query(fn (Builder $query): Builder => $query->where('is_shown_in_footer', true))->label("Footer'da gösterilenler" )
             ])
             ->actions([
-                Tables\Actions\EditAction::make(),
+                Tables\Actions\EditAction::make()->label('Düzenle'),
             ])
             ->bulkActions([
                 Tables\Actions\DeleteBulkAction::make(),
