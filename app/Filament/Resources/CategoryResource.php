@@ -17,6 +17,10 @@ class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
 
+    protected static ?string $pluralLabel = 'Kategoriler';
+
+    protected static ?string $modelLabel = 'Kategori';
+
     protected static ?string $navigationLabel = 'Kategoriler';
 
     protected static ?string $navigationIcon = 'heroicon-o-collection';
@@ -25,9 +29,11 @@ class CategoryResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->label('İsim')->required(),
-                Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
-                Forms\Components\Toggle::make('is_shown_in_footer')->label("Footer'da göster")->required()
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\TextInput::make('name')->label('İsim')->required(),
+                    Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
+                    Forms\Components\Toggle::make('is_shown_in_footer')->label("Footer'da göster")->required()
+                ])
             ]);
     }
 

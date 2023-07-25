@@ -42,13 +42,13 @@ class AppServiceProvider extends ServiceProvider
                     ->url('/admin/sortings?location=1')
                     ->icon('heroicon-o-presentation-chart-line')
                     ->activeIcon('heroicon-s-presentation-chart-line')
-                    ->group('Sortings')
+                    ->group('Manşet Sıralaması')
                     ->sort(3),
                 NavigationItem::make('Sağ Manşet')
                     ->url('/admin/sortings?location=2')
                     ->icon('heroicon-o-presentation-chart-line')
                     ->activeIcon('heroicon-s-presentation-chart-line')
-                    ->group('Sortings')
+                    ->group('Manşet Sıralaması')
                     ->sort(3),
             ]);
         });

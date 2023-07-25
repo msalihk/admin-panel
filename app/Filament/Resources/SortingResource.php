@@ -24,8 +24,10 @@ class SortingResource extends Resource
 {
     protected static ?string $model = Sorting::class;
 
+    protected static ?string $modelLabel = 'Haber Sıralama';
+
     protected static ?string $navigationIcon = 'heroicon-o-wrench-screwdriver';
-    protected static ?string $navigationGroup = 'Sortings';
+    protected static ?string $navigationGroup = 'Manşet Sıralaması';
     protected static bool $shouldRegisterNavigation = false;
     protected $queryString = [
         'tableFilters',

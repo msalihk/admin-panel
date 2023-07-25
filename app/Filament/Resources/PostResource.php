@@ -20,6 +20,10 @@ class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
 
+    protected static ?string $pluralLabel = 'Haberler';
+
+    protected static ?string $modelLabel = 'Haber';
+
     protected static ?string $navigationLabel = 'Haberler';
 
     protected static ?string $navigationIcon = 'heroicon-o-newspaper';
@@ -29,30 +33,32 @@ class PostResource extends Resource
     {
         return $form
             ->schema([
-                Radio::make('location')
-                    ->options([
-                        0 => 'Normal',
-                        1 => 'Manşet',
-                        2 => 'Sağ Manşet'
-                    ])->default(0),
-                Forms\Components\TextInput::make('short_title')->label('Kısa Başlık')->required(),
-                Forms\Components\TextInput::make('title')->label('Ana Başlık')->required(),
-                Forms\Components\TextInput::make('summary')->label('Özet')->required(),
-                Forms\Components\RichEditor::make('content')->label('İçerik')->required(),
-                Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
-                Forms\Components\FileUpload::make('image_url')->label('Görüntü Linki'),
-                Select::make('category_id')
-                    ->label('Kategori')
-                    ->searchable()
-                    ->relationship('categories', 'name')
-                    ->multiple()
-                    ->options(Category::all()->pluck('name', 'id')->toArray()),
-                Select::make('tag_id')
-                    ->label('Etiket')
-                    ->searchable()
-                    ->relationship('tags', 'name')
-                    ->multiple()
-                    ->options(Tag::all()->pluck('name', 'id')->toArray()),
+                Forms\Components\Card::make()->schema([
+                    Radio::make('location')
+                        ->options([
+                            0 => 'Normal',
+                            1 => 'Manşet',
+                            2 => 'Sağ Manşet'
+                        ])->label('Manşet türü')->default(0),
+                    Forms\Components\TextInput::make('short_title')->label('Kısa Başlık')->required(),
+                    Forms\Components\TextInput::make('title')->label('Ana Başlık')->required(),
+                    Forms\Components\TextInput::make('summary')->label('Özet')->required(),
+                    Forms\Components\RichEditor::make('content')->label('İçerik')->required(),
+                    Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
+                    Forms\Components\FileUpload::make('image_url')->label('Görüntü Linki'),
+                    Select::make('category_id')
+                        ->label('Kategori')
+                        ->searchable()
+                        ->relationship('categories', 'name')
+                        ->multiple()
+                        ->options(Category::all()->pluck('name', 'id')->toArray()),
+                    Select::make('tag_id')
+                        ->label('Etiket')
+                        ->searchable()
+                        ->relationship('tags', 'name')
+                        ->multiple()
+                        ->options(Tag::all()->pluck('name', 'id')->toArray()),
+                ])
             ]);
     }
 
@@ -60,14 +66,14 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('location')->searchable(),
-                Tables\Columns\IconColumn::make('is_active')->boolean(),
-                Tables\Columns\TextColumn::make('short_title')->searchable(),
-                Tables\Columns\TextColumn::make('title')->searchable(),
-                Tables\Columns\TextColumn::make('summary'),
-                Tables\Columns\TextColumn::make('content'),
-                Tables\Columns\ImageColumn::make('image_url'),
-                Tables\Columns\TextColumn::make('created_at')->sortable(),
+                Tables\Columns\TextColumn::make('location')->label('Manşet türü')->searchable(),
+                Tables\Columns\IconColumn::make('is_active')->label('Aktif')->boolean(),
+                Tables\Columns\TextColumn::make('short_title')->label('Kısa başlık')->searchable(),
+                Tables\Columns\TextColumn::make('title')->label('Ana başlık')->searchable(),
+                Tables\Columns\TextColumn::make('summary')->label('Özet'),
+                Tables\Columns\TextColumn::make('content')->label('İçerik'),
+                Tables\Columns\ImageColumn::make('image_url')->label('Görüntü linki'),
+                Tables\Columns\TextColumn::make('created_at')->sortable()->hidden(),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([

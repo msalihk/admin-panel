@@ -21,6 +21,10 @@ class UserResource extends Resource
 {
     protected static ?string $model = User::class;
 
+    protected static ?string $pluralLabel = 'Kullanıcılar';
+
+    protected static ?string $modelLabel = 'Kullanıcı';
+
     protected static ?string $navigationLabel = 'Kullanıcılar';
 
     protected static ?string $navigationIcon = 'heroicon-o-users';
@@ -29,34 +33,37 @@ class UserResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('first_name')
-                    ->required()
-                    ->maxLength(25),
-                Forms\Components\TextInput::make('last_name')
-                    ->required()
-                    ->maxLength(25),
-                Forms\Components\TextInput::make('email')
-                    ->email()
-                    ->required()
-                    ->maxLength(50),
-                Forms\Components\Toggle::make('is_active')
-                    ->required(),
-                Forms\Components\TextInput::make('password')
-                    ->label('Şifre')
-                    ->password()
-                    ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
-                    ->same('password_confirmation')
-                    ->minLength(8)
-                    ->maxLength(255)
-                    ->dehydrated(fn($state) => filled($state))
-                    ->dehydrateStateUsing(fn($state) => Hash::make($state)),
-                Forms\Components\TextInput::make('password_confirmation')
-                    ->password()
-                    ->label('Şifre tekrar')
-                    ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
-                    ->minLength(8)
-                    ->maxLength(255)
-                    ->dehydrated(false)
+                Forms\Components\Card::make()->schema([
+                    Forms\Components\TextInput::make('first_name')
+                        ->label('Ad')
+                        ->required()
+                        ->maxLength(25),
+                    Forms\Components\TextInput::make('last_name')
+                        ->label('Soyad')
+                        ->required()
+                        ->maxLength(25),
+                    Forms\Components\TextInput::make('email')
+                        ->email()
+                        ->required()
+                        ->maxLength(50),
+                    Forms\Components\Toggle::make('is_active')->label('Aktif'),
+                    Forms\Components\TextInput::make('password')
+                        ->label('Şifre')
+                        ->password()
+                        ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                        ->same('password_confirmation')
+                        ->minLength(8)
+                        ->maxLength(255)
+                        ->dehydrated(fn($state) => filled($state))
+                        ->dehydrateStateUsing(fn($state) => Hash::make($state)),
+                    Forms\Components\TextInput::make('password_confirmation')
+                        ->password()
+                        ->label('Şifre tekrar')
+                        ->required(fn(Page $livewire): bool => $livewire instanceof CreateRecord)
+                        ->minLength(8)
+                        ->maxLength(255)
+                        ->dehydrated(false)
+                ])
             ]);
     }
 
@@ -64,17 +71,12 @@ class UserResource extends Resource
     {
         return $table
             ->columns([
-                Tables\Columns\TextColumn::make('first_name')->searchable(),
-                Tables\Columns\TextColumn::make('last_name')->searchable(),
+                Tables\Columns\TextColumn::make('first_name')->label('Ad')->searchable(),
+                Tables\Columns\TextColumn::make('last_name')->label('Soyad')->searchable(),
                 Tables\Columns\TextColumn::make('email'),
                 Tables\Columns\IconColumn::make('is_active')
+                    ->label('Aktif')
                     ->boolean(),
-                Tables\Columns\TextColumn::make('email_verified_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('created_at')
-                    ->dateTime(),
-                Tables\Columns\TextColumn::make('updated_at')
-                    ->dateTime(),
             ])
             ->filters([
                 //
