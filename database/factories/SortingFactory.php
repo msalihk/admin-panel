@@ -2,7 +2,6 @@
 
 namespace Database\Factories;
 
-use App\Models\Post;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,8 +17,7 @@ class SortingFactory extends Factory
     public function definition(): array
     {
         return [
-            'location' => rand(1, 2),
-            'post_id' => Post::factory()
+            'location' => $this->faker->randomElement([1, 2])
         ];
     }
 }

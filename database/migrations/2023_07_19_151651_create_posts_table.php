@@ -14,11 +14,11 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             /*
-                0 => Manset,
-                1 => Sag manset,
-                2 => Manset degil
+                0 => Normal,
+                1 => Manset,
+                2 => Sağ Manset
             */
-            $table->integer('location');
+            $table->smallInteger('location');
             $table->string('title');
             $table->string('short_title');
             $table->text('summary');

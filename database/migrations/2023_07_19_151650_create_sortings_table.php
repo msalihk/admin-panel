@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('sortings', function (Blueprint $table) {
             $table->id();
-            $table->smallInteger('location')->nullable();
+            $table->smallInteger('location');
             $table->smallInteger('order')->nullable();
+            $table->jsonb('posts')->nullable();
             $table->timestamps();
         });
     }

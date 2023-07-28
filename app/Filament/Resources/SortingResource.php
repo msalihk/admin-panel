@@ -16,9 +16,12 @@ use Filament\Tables;
 use Filament\Tables\Actions\Action;
 use Filament\Tables\Filters\Filter;
 use Filament\Tables\Filters\SelectFilter;
+use Filament\Tables\Filters\TernaryFilter;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class SortingResource extends Resource
 {
@@ -37,44 +40,37 @@ class SortingResource extends Resource
         'tableColumnSearchQueries',
     ];
 
-
-
-    public static function form(Form $form): Form
+    public static function canCreate(): bool
     {
-        return $form
-            ->schema([
-                Forms\Components\TextInput::make('location'),
-                Forms\Components\TextInput::make('order'),
-
-            ]);
+        return false;
     }
+    public static function canEdit(Model $record): bool
+    {
+        return false;
+    }
+
 
     public static function table(Table $table): Table
     {
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('location')->label('Manşet'),
+                Tables\Columns\TextColumn::make('order')->label('Sıra'),
+                Tables\Columns\ImageColumn::make('post.image_url')->label('Görsel'),
                 Tables\Columns\TextColumn::make('post.short_title')->label('Kısa Başlık'),
-                Tables\Columns\TextColumn::make('post.created_at')->sortable(),
             ])
             ->filters([
                 SelectFilter::make('location')
                     ->options([
-                        0 => 'Normal',
-                        1 => 'Manşet',
-                        2 => 'Sağ Manşet',
+                        '1' => 'Manşet',
+                        '2' => 'Sağ Manşet',
                     ])->default(request()->get('location'))
-
             ])
+
             ->actions([
-                Tables\Actions\EditAction::make(),
-//                Action::make('sort')
-//                    ->label('Özel Sıralama')
-//                    ->action()
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
-            ])->defaultSort('post.created_at', 'desc')->reorderable('order');
+            ])->defaultSort('order', 'asc')->reorderable('order');
     }
 
     public static function getRelations(): array
@@ -88,13 +84,7 @@ class SortingResource extends Resource
     {
         return [
             'index' => Pages\ListSortings::route('/'),
-            'create' => Pages\CreateSorting::route('/create'),
             'edit' => Pages\EditSorting::route('/{record}/edit'),
         ];
     }
-
-//    public static function getEloquentQuery(): Builder
-//    {
-//        return parent::getEloquentQuery()->where('location', request()->get('location'));
-//    }
 }

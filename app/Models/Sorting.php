@@ -12,6 +12,10 @@ class Sorting extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'posts' => 'array',
+    ];
+
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

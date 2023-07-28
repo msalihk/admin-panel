@@ -52,6 +52,7 @@ class TagResource extends Resource
             ])
             ->filters([
                 Filter::make('is_active')
+                    ->label('Aktif olanlar')
                     ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
             ])
             ->actions([

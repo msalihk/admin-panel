@@ -13,6 +13,7 @@ use Filament\Resources\Pages\Page;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 use Illuminate\Support\Facades\Hash;
@@ -79,7 +80,9 @@ class UserResource extends Resource
                     ->boolean(),
             ])
             ->filters([
-                //
+                Filter::make('is_active')
+                    ->label('Aktif olanlar')
+                    ->query(fn (Builder $query): Builder => $query->where('is_active', true))
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

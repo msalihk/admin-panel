@@ -13,6 +13,7 @@ use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
+use Filament\Tables\Filters\Filter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -44,7 +45,6 @@ class PostResource extends Resource
                     Forms\Components\TextInput::make('title')->label('Ana Başlık')->required(),
                     Forms\Components\TextInput::make('summary')->label('Özet')->required(),
                     Forms\Components\RichEditor::make('content')->label('İçerik')->required(),
-                    Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
                     Forms\Components\FileUpload::make('image_url')->label('Görüntü Linki'),
                     Select::make('category_id')
                         ->label('Kategori')
@@ -58,7 +58,9 @@ class PostResource extends Resource
                         ->relationship('tags', 'name')
                         ->multiple()
                         ->options(Tag::all()->pluck('name', 'id')->toArray()),
-                ])
+                    Forms\Components\Toggle::make('is_active')->label('Aktif')->required(),
+                ]),
+
             ]);
     }
 
@@ -66,18 +68,17 @@ class PostResource extends Resource
     {
         return $table
             ->columns([
+                Tables\Columns\ImageColumn::make('image_url')->label('Görsel'),
+                Tables\Columns\TextColumn::make('title')->label('Ana başlık')->searchable(),
                 Tables\Columns\TextColumn::make('location')->label('Manşet türü')->searchable(),
                 Tables\Columns\IconColumn::make('is_active')->label('Aktif')->boolean(),
-                Tables\Columns\TextColumn::make('short_title')->label('Kısa başlık')->searchable(),
-                Tables\Columns\TextColumn::make('title')->label('Ana başlık')->searchable(),
-                Tables\Columns\TextColumn::make('summary')->label('Özet'),
-                Tables\Columns\TextColumn::make('content')->label('İçerik'),
-                Tables\Columns\ImageColumn::make('image_url')->label('Görüntü linki'),
-                Tables\Columns\TextColumn::make('created_at')->sortable()->hidden(),
+                Tables\Columns\TextColumn::make('created_at')->label('Oluşturulma tarihi')->dateTime('D, d M Y H:i:s')->sortable(),
             ])
             ->defaultSort('created_at', 'desc')
             ->filters([
-                //
+                Filter::make('is_active')
+                    ->label('Aktif olanlar')
+                    ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),
