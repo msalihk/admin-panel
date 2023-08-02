@@ -7,7 +7,6 @@ use App\Models\Category;
 use App\Models\Post;
 use App\Models\Sorting;
 use App\Models\Tag;
-use Database\Factories\SortingFactory;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -30,8 +29,15 @@ class DatabaseSeeder extends Seeder
 
          Tag::factory(10)->create();
 
-         Post::factory(50)->create();
+        Post::factory(50)->create([
+            'location' => 0
+        ]);
 
-         Sorting::factory(2)->create();
+        Post::factory(50)->create([
+            'location' => 1
+        ]);
+        Post::factory(50)->create([
+             'location' => 2
+         ]);
     }
 }

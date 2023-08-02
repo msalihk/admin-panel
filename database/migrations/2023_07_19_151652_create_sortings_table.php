@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('location');
             $table->smallInteger('order')->nullable();
-            $table->jsonb('posts')->nullable();
+            $table->foreignId('post_id')->constrained();
+//            $table->jsonb('posts')->nullable();
             $table->timestamps();
         });
     }

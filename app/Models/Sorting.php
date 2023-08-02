@@ -10,11 +10,6 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Sorting extends Model
 {
-    use HasFactory;
-
-    protected $casts = [
-        'posts' => 'array',
-    ];
 
     public function post(): BelongsTo
     {
