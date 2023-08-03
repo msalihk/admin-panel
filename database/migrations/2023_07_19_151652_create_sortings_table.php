@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->smallInteger('location');
             $table->smallInteger('order')->nullable();
-            $table->foreignId('post_id')->constrained();
+            $table->foreignId('post_id')->constrained()->onDelete('cascade');
 //            $table->jsonb('posts')->nullable();
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PostResource\Pages;
+use App\Helper;
 use App\Models\Category;
 use App\Models\Post;
 use App\Models\Tag;
@@ -84,7 +85,9 @@ class PostResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make(),
+                Tables\Actions\DeleteBulkAction::make()->after(function (): array {
+                    return Helper::sort();
+                }),
             ]);
     }
 

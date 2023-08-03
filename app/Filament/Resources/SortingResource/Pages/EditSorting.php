@@ -3,8 +3,11 @@
 namespace App\Filament\Resources\SortingResource\Pages;
 
 use App\Filament\Resources\SortingResource;
+use App\Models\Post;
+use App\Models\Sorting;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Support\Facades\DB;
 
 class EditSorting extends EditRecord
 {
@@ -16,6 +19,4 @@ class EditSorting extends EditRecord
             Actions\DeleteAction::make(),
         ];
     }
-
-
 }
