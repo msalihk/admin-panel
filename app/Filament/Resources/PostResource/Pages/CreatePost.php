@@ -24,8 +24,10 @@ class CreatePost extends CreateRecord
         ]);
     }
 
-    protected function afterCreate(): array
+    protected function handleRecordCreation(array $data): Model
     {
-        return Helper::sort();
+        $post = static::getModel()::create($data);
+        Helper::sort($post);
+        return $post;
     }
 }

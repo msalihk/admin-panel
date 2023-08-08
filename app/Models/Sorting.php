@@ -11,6 +11,12 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 class Sorting extends Model
 {
 
+    protected $fillable = [
+        'location',
+        'order',
+        'post_id'
+    ];
+
     public function post(): BelongsTo
     {
         return $this->belongsTo(Post::class);

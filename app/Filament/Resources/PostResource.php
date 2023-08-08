@@ -85,8 +85,8 @@ class PostResource extends Resource
                 Tables\Actions\EditAction::make(),
             ])
             ->bulkActions([
-                Tables\Actions\DeleteBulkAction::make()->after(function (): array {
-                    return Helper::sort();
+                Tables\Actions\DeleteBulkAction::make()->after(function (): void {
+                    Helper::sort();
                 }),
             ]);
     }

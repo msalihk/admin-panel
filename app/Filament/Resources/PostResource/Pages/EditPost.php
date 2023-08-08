@@ -8,6 +8,7 @@ use App\Models\Post;
 use App\Models\Sorting;
 use Filament\Pages\Actions;
 use Filament\Resources\Pages\EditRecord;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 class EditPost extends EditRecord
@@ -17,14 +18,8 @@ class EditPost extends EditRecord
     protected function getActions(): array
     {
         return [
-            Actions\DeleteAction::make()->after(function (): array {
-                return Helper::sort();
-            }),
+            Actions\DeleteAction::make()->after(fn(Post $post) => Helper::sort($post)),
         ];
     }
 
-    protected function afterSave(): array
-    {
-        return Helper::sort();
-    }
 }

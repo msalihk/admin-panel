@@ -22,12 +22,13 @@ class User extends Authenticatable implements FilamentUser, HasName
      *
      * @var array<int, string>
      */
-//    protected $fillable = [
-//        'first_name',
-//        'last_name',
-//        'email',
-//        'password',
-//    ];
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'email',
+        'is_active',
+        'password',
+    ];
 
     /**
      * The attributes that should be hidden for serialization.

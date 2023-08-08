@@ -10,6 +10,12 @@ class Category extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'is_active',
+        'is_shown_in_footer',
+    ];
+
     public function posts(): BelongsToMany
     {
        return $this->belongsToMany(Post::class);
