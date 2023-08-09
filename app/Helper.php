@@ -12,26 +12,37 @@ class Helper
 {
     public static function sort(Post $post): void
     {
-        $location = PostLocation::from($post->location);
+        $newLocation = $post->location;
 
-        $max = $location->getMaxNumber();
+        $existingSorting = Sorting::where('post_id', $post->id)->first();
 
-        Sorting::create([
-            'location' => $post->location,
-            'order' => 1,
-            'post_id' => $post->id,
-        ]);
-
-        $sortingPosts = Sorting::where('location', $post->location)->orderBy('created_at', 'desc')->get();
-        foreach ($sortingPosts as $key => $sortingPost) {
-            if ($key + 1 >  $max) {
-                $sortingPost->delete();
-                continue;
+        if ($existingSorting) {
+            if ($existingSorting->location !== $newLocation) {
+                $existingSorting->update(['location' => $newLocation, 'order' => 1]);
             }
+        } else {
+            $location = PostLocation::from($newLocation);
+            $max = $location->getMaxNumber();
 
-            $sortingPost->order = $key + 1;
-            $sortingPost->save();
+            Sorting::create([
+                'location' => $newLocation,
+                'order' => 1,
+                'post_id' => $post->id,
+            ]);
+
+            $sortingPosts = Sorting::where('location', $newLocation)
+                ->orderBy('created_at', 'desc')
+                ->get();
+
+            foreach ($sortingPosts as $key => $sortingPost) {
+                if ($key + 1 > $max) {
+                    $sortingPost->delete();
+                    continue;
+                }
+
+                $sortingPost->order = $key + 1;
+                $sortingPost->save();
+            }
         }
     }
-
 }
