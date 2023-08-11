@@ -71,7 +71,11 @@ class PostResource extends Resource
             ->columns([
                 Tables\Columns\ImageColumn::make('image_url')->label('Görsel'),
                 Tables\Columns\TextColumn::make('title')->label('Ana başlık')->searchable(),
-                Tables\Columns\TextColumn::make('location')->label('Manşet türü')->searchable(),
+                Tables\Columns\TextColumn::make('location')->enum([
+                    '0' => 'Normal',
+                    '1' => 'Manşet',
+                    '2' => 'Sağ Manşet',
+                ])->label('Manşet türü')->searchable(),
                 Tables\Columns\IconColumn::make('is_active')->label('Aktif')->boolean(),
                 Tables\Columns\TextColumn::make('created_at')->label('Oluşturulma tarihi')->dateTime('D, d M Y H:i:s')->sortable(),
             ])

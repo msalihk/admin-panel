@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\SpecialSortController;
+use App\Models\Category;
+use App\Models\Sorting;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,7 +17,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('homepage', [
+        'categories' => Category::where('is_active', 1)->get(),
+        'footerCategories' => Category::where('is_active',1)->where('is_shown_in_footer', 1)->get(),
+        'sortedPosts' => Sorting::where('location', 1)->orderBy('order', 'asc')->get(),
+        'headlineRightNews' => Sorting::where('location', 2)->orderBy('order', 'asc')->get()
+    ]);
 });
 
 
