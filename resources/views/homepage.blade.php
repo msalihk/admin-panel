@@ -1,48 +1,7 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
-  <style>
-    .swiper {
-        width: 600px;
-        height: 480px;
-        border: 1px solid black;
-    }
-    .swiper-slide {
-      text-align: center;
-      font-size: 18px;
-      background: #fff;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .swiper-pagination-bullet {
-      width: 20px;
-      height: 20px;
-      text-align: center;
-      line-height: 20px;
-      font-size: 12px;
-      color: #000;
-      opacity: 1;
-      background: rgba(0, 0, 0, 0.2);
-    }
-
-    .swiper-pagination-bullet-active {
-      color: #fff;
-      background: #007aff;
-    }
-  </style>
-  @vite('resources/css/app.css')
-</head>
-<body class="xl:container mx-auto px-3 sm:px-4 xl:px-2">
-    <x-header :categories="$categories" />
-
-    <main class="my-36 border-solid border-black border-2">
+<x-layout :categories="$categories" :footerCategories="$footerCategories">
+    <main class="my-36 ">
         <section class="flex">
-            <div class="swiper mySwiper w-1/2 p-4">
+            <div class="swiper mySwiper w-1/2 shadow-md">
                 <div class="swiper-wrapper">
                     @foreach ($sortedPosts as $sortedPost)
                         <div class="swiper-slide" >
@@ -50,38 +9,27 @@
                         </div>
                     @endforeach
                 </div>
+                <div class="swiper-button-next text-white"></div>
+                <div class="swiper-button-prev text-white"></div>
                 <div class="swiper-pagination"></div>
+                <div class="autoplay-progress text-sky-50">
+                    <svg viewBox="0 0 48 48">
+                      <circle cx="24" cy="24" r="20"></circle>
+                    </svg>
+                    <span></span>
+                  </div>
             </div>
-            <div class=" w-1/2 p-4 bg-black">
-                <div class="flex">
+            <div class=" w-1/2 bg-white border-2">
+                <div class="grid grid-cols-2 gap-5">
                     @foreach ($headlineRightNews as $headlineRightNew)
-                        <div class="m-4">
-                            <img src="{{$headlineRightNew->post->image_url}}" alt="">
-                        </div>
+                        <div class="bg-white p-4 shadow-md border-black border-dashed cursor-pointer">
+                            <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="w-full h-40 object-cover">
+                            <h3 class="mt-2 text-xl font-semibold">{{$headlineRightNew->post->short_title}}</h3>
+                          </div>
                     @endforeach
                 </div>
             </div>
         </section>
 
     </main>
-
-
-    <x-footer :footerCategories="$footerCategories"/>
-
-<!-- Swiper JS -->
-<script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
-
-<!-- Initialize Swiper -->
-<script>
-  var swiper = new Swiper(".mySwiper", {
-    pagination: {
-      el: ".swiper-pagination",
-      clickable: true,
-      renderBullet: function (index, className) {
-        return '<span class="' + className + '">' + (index + 1) + "</span>";
-      },
-    },
-  });
-</script>
-</body>
-</html>
+</x-layout>

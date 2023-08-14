@@ -11,7 +11,7 @@ enum PostLocation: int {
     {
         return match($this){
             self::MANSET => 20,
-            self::SAG_MANSET => 5,
+            self::SAG_MANSET => 4,
             self::NORMAL => 0
         };
     }

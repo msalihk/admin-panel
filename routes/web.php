@@ -1,9 +1,14 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\SpecialSortController;
 use App\Models\Category;
+use App\Models\Post;
 use App\Models\Sorting;
 use Illuminate\Support\Facades\Route;
+
+use function Laravel\Prompts\search;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,5 +29,7 @@ Route::get('/', function () {
         'headlineRightNews' => Sorting::where('location', 2)->orderBy('order', 'asc')->get()
     ]);
 });
+
+Route::get('search', [PostController::class, 'search'])->name('search');
 
 
