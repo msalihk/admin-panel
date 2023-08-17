@@ -30,7 +30,6 @@ class PostFactory extends Factory
             'summary' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
             'user_id' => User::factory(),
-            'image_url' => $this->faker->imageUrl(),
             'is_active' => $this->faker->boolean,
         ];
     }

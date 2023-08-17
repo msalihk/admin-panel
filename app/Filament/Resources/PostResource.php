@@ -15,6 +15,7 @@ use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
 use Filament\Tables\Filters\Filter;
+use Filament\Tables\Filters\SelectFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
 
@@ -84,6 +85,13 @@ class PostResource extends Resource
                 Filter::make('is_active')
                     ->label('Aktif olanlar')
                     ->query(fn (Builder $query): Builder => $query->where('is_active', true)),
+                SelectFilter::make('location')
+                    ->label('Manşet türü')
+                    ->options([
+                        '0' => 'Normal',
+                        '1' => 'Manşet',
+                        '2' => 'Sağ Manşet',
+                    ])
             ])
             ->actions([
                 Tables\Actions\EditAction::make(),

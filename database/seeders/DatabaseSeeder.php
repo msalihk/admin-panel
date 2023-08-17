@@ -30,14 +30,17 @@ class DatabaseSeeder extends Seeder
          Tag::factory(10)->create();
 
         Post::factory(50)->create([
-            'location' => 0
+            'location' => 0,
+            'image_url' => 'https://picsum.photos/640/480?grayscale'
         ]);
 
         Post::factory(50)->create([
-            'location' => 1
+            'location' => 1,
+            'image_url' => 'https://picsum.photos/640/480?grayscale'
         ]);
         Post::factory(50)->create([
-             'location' => 2
+             'location' => 2,
+             'image_url' => 'https://picsum.photos/640/480?grayscale'
          ]);
     }
 }

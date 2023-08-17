@@ -35,7 +35,7 @@ class SortNews extends Command
 
         $location2Posts = Post::where('location', 2)
             ->orderBy('created_at', 'desc')
-            ->take(4)
+            ->take(3)
             ->get();
 
         DB::table('sortings')->delete();

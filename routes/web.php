@@ -22,7 +22,7 @@ use function Laravel\Prompts\search;
 */
 
 Route::get('/', function () {
-    return view('homepage', [
+    return view('pages.home', [
         'categories' => Category::where('is_active', 1)->get(),
         'footerCategories' => Category::where('is_active',1)->where('is_shown_in_footer', 1)->get(),
         'sortedPosts' => Sorting::where('location', 1)->orderBy('order', 'asc')->get(),
