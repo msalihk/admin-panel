@@ -3,7 +3,7 @@
 <head>
    @include('includes.head')
 </head>
-<body class="text-base leading-none">
+<body class="text-base leading-none bg-gray-100">
 <div>
 
     @include('includes.header')

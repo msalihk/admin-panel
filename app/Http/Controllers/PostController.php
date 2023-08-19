@@ -14,7 +14,7 @@ class PostController extends Controller
         $query = $request->input('query');
 
         $categories = Category::where('is_active', 1)->get();
-        $footerCategories = Category::where('is_active',1)->where('is_shown_in_footer', 1)->get();
+        $footerCategories = Category::where('is_active', 1)->where('is_shown_in_footer', 1)->get();
 
         // $posts = Post::where(function ($queryBuilder) use ($query) {
         //     $queryBuilder->where('short_title', 'like', '%' . $query . '%')
@@ -30,5 +30,10 @@ class PostController extends Controller
             ->get();
 
     return view('search-results', compact('posts', 'categories', 'footerCategories'));
+    }
+
+    public function navigation($category)
+    {
+        return view('pages.navigation',['category' => $category]);
     }
 }

@@ -47,7 +47,7 @@
             </div>
         </aside>
         <footer class="border-t-2 border-t-white my-2 py-2">
-            <ul class="flex space-x-6 my-2 py-2">
+            <ul class="flex space-x-6 my-2 text-xs py-2">
                 <li>
                     <a href="">Terms of Use</a>
                 </li>

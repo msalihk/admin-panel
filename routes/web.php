@@ -26,9 +26,21 @@ Route::get('/', function () {
         'categories' => Category::where('is_active', 1)->get(),
         'footerCategories' => Category::where('is_active',1)->where('is_shown_in_footer', 1)->get(),
         'sortedPosts' => Sorting::where('location', 1)->orderBy('order', 'asc')->get(),
-        'headlineRightNews' => Sorting::where('location', 2)->orderBy('order', 'asc')->get()
+        'headlineRightNews' => Sorting::where('location', 2)->orderBy('order', 'asc')->get(),
+        'newsPosts' => Post::where('location', 0)->whereHas('categories', function ($query) {
+            $query->where('name', "News");
+        })->orderBy('created_at', 'desc')
+        ->take(3)->get(),
+        'sportsPosts' => Post::where('location', 0)->whereHas('categories', function ($query) {
+            $query->where('name', "Sports");
+        })->orderBy('created_at', 'desc')
+        ->take(3)->get(),
     ]);
 });
+
+Route::get('/categories/news', [PostController::class, 'navigation'])->name('news');
+
+
 
 Route::get('search', [PostController::class, 'search'])->name('search');
 

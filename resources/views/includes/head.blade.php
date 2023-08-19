@@ -2,6 +2,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
   <title>Haber Sitesi</title>
 
@@ -21,6 +22,14 @@
     .swiper-pagination-bullet-active {
       color: #fff;
       background: #007aff;
+    }
+
+    .swiper-pagination-bullet {
+        text-indent: -99999px;
+        height: 2px;
+    }
+    .swiper-pagination-bullet-active {
+        background-color: red;
     }
   </style>
 

@@ -18,8 +18,6 @@ class CategoryFactory extends Factory
     {
         return [
             'name' => $this->faker->word,
-            'is_active' => $this->faker->boolean,
-            'is_shown_in_footer' => $this->faker->boolean,
         ];
     }
 }
