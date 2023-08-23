@@ -17,6 +17,9 @@ export default {
                 success: colors.green,
                 warning: colors.yellow,
             },
+            fontFamily: {
+                'roboto': ['Roboto', 'sans-serif'],
+              }
         },
     },
     plugins: [

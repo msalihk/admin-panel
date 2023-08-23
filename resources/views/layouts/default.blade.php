@@ -3,12 +3,12 @@
 <head>
    @include('includes.head')
 </head>
-<body class="text-base leading-none bg-gray-100">
+<body class="text-base leading-none font-roboto">
 <div>
 
     @include('includes.header')
 
-    <main>
+    <main class="mx-4 xl:mx-0">
         @yield('content')
     </main>
 

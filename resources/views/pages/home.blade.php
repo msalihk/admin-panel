@@ -1,31 +1,31 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container mx-auto my-6 max-w-7xl space-y-10">
-        <section id="manset" class="grid grid-cols-3 gap-2">
-            <div class="col-span-2">
+    <div class="container mx-auto my-6 max-w-7xl xl:space-y-10">
+        <section id="manset" class="mb-24 xl:grid xl:grid-cols-3 gap-4 space-y-4 xl:space-y-0">
+            <div class="xl:col-span-2">
                 <!-- Swiper -->
-                <div class="swiper mySwiper" style="height: 600px;">
+                <div class="swiper mySwiper h-[18.75rem] lg:h-[28.125rem] xl:h-[37.5rem]">
                     <div class="swiper-wrapper">
                         @foreach ($sortedPosts as $sortedPost)
-                        <div class="swiper-slide text-center bg-white flex justify-center items-center">
+                        <div class="swiper-slide">
                             <img src="{{$sortedPost->post->image_url}}" class="block w-full h-full object-cover" alt="Manşet" title="{{$sortedPost->post->short_title}}">
-                            <div class="absolute bottom-4 left-4 w-full text-left bg-opacity-75 pb-5  pl-5">
-                                <a href="" class="border-solid border-l-2 border-red-500 text-white pl-2">{{$sortedPost->post->tags->first()->name}}</a>
-                                <h3 class="text-4xl font-semibold text-white py-2">{{$sortedPost->post->short_title}}</h3>
+                            <div class="absolute bottom-0 left-0 w-full h-1/2 text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4 xl:pl-8 xl:pt-48">
+                                <h3 class="text-4xl font-semibold text-white pb-2">{{$sortedPost->post->short_title}}</h3>
+                                <a href="" class="border-solid bottom-2 border-l-2 border-red-500 text-white pl-2">{{$sortedPost->post->tags->first()->name}}</a>
                             </div>
                         </div>
                         @endforeach
                     </div>
-                    <div class="swiper-pagination"></div>
+                    <div class="swiper-pagination invisible sm:visible"></div>
                 </div>
             </div>
-            <div class="col-span-1">
-                <div class="grid grid-row-3 gap-2" style="height: 600px">
+            <div class="xl:col-span-1 gap-2">
+                <div class="grid grid-cols-1 md:grid-cols-3 xl:grid-rows-3 xl:grid-cols-none gap-5 sm:h-[9.375rem] lg:h-[14.0625rem] xl:h-[37.5rem] justify-between xl:justify-normal">
                     @foreach ($headlineRightNews as $headlineRightNew)
-                        <div class="shadow-md border-black cursor-pointer relative" >
-                            <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="object-cover aspect-video box-border h-48 w-full">
-                            <div class="absolute bottom-4 left-4 w-full text-left bg-opacity-75">
+                        <div class="shadow-md border-black cursor-pointer relative md:col-span-1 xl:row-span-1">
+                            <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="object-cover box-border h-full w-full">
+                            <div class="absolute bottom-0 left-0 h-1/2 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4 xl:pl-4 xl:pt-8">
                                 <h3 class="text-sm font-semibold text-white py-2">{{$headlineRightNew->post->short_title}}</h3>
                                 <a href="" class="border-solid border-l-2 border-red-500 text-white pl-2">{{$headlineRightNew->post->tags->first()->name}}</a>
                             </div>
@@ -34,15 +34,18 @@
                 </div>
             </div>
         </section>
-        <section id="manset olmayan haberler">
+        <section id="manset olmayan haberler" class="mt-4">
             <section class="my-4">
                 <div class="space-y-4">
-                  <h2 class="border-solid border-l-2 border-red-500 text-bold text-gray-700 text-3xl pl-4"><a href="">News</a></h2>
+                  <h2 class="border-solid border-l-2 border-red-500 text-bold text-gray-700 text-2xl font-bold py-0 px-2"><a href="">News</a></h2>
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                       @foreach ($newsPosts as $item)
                           <div class="col-span-1">
                               <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-3">
-                              <span style="display: block; font-weigth: 500; font-size:18px; line-height: 26px; color: black;">{{ $item->short_title }}</span>
+                              <h3 class="font-bold block text-black text-lg">
+                                <a href="/">{{ $item->short_title }}</a>
+                              </h3>
+                              <a href="" class="border-solid border-l-2 border-red-500 text-black text-sm py-0 px-2">{{ $item->tags->first()->name }}</a>
                           </div>
                       @endforeach
                   </div>
@@ -50,18 +53,89 @@
               </section>
               <section class="my-4">
               <div class="space-y-4">
-                  <h2 class="border-solid border-l-2 border-yellow-500 text-bold text-gray-700 text-3xl pl-4"><a href="">Sports</a></h2>
+                  <h2 class="border-solid border-l-2 border-yellow-500 text-bold text-gray-700 text-2xl font-bold px-2"><a href="">Sports</a></h2>
                   <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                       @foreach ($sportsPosts as $item)
                         <div class="col-span-1">
                             <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-3">
-                            <span style="display: block; font-weigth: 500; font-size:18px; line-height: 26px; color: black;">{{ $item->short_title }}</span>
+                            <h3 class="font-bold block text-black text-lg">
+                                <a href="/">{{ $item->short_title }}</a>
+                            </h3>
+                            <a href="" class="border-solid border-l-2 border-red-500 text-black text-sm py-0 px-2">{{ $item->tags->first()->name }}</a>
                         </div>
                       @endforeach
                   </div>
               </div>
               </section>
         </section>
+    </div>
+
+    <div class="w-full sm:bg-gray-200">
+        <div class="container mx-auto my-6 max-w-7xl xl:space-y-10">
+            <section class="py-4">
+                <div>
+                    <div>
+                        <h2 class="border-solid border-l-2 border-blue-500 text-bold text-gray-700 text-2xl font-bold my-4 px-2"><a href="">Editor's Picks</a></h2>
+                        <a href="/">
+                            <div class="shadow-md border-black cursor-pointer relative">
+                                <img src="{{$editorsPicks->first()->image_url}} alt="News Image" class="object-cover box-border aspect-video h-full w-full">
+                                <div class="absolute bottom-0 left-0 h-1/2 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4">
+                                    <h3 class="text-sm font-semibold text-white py-2">{{$editorsPicks->first()->short_title}}</h3>
+                                    <a href="" class="border-solid border-l-2 border-red-500 text-white pl-2">{{$editorsPicks->first()->tags->first()->name}}</a>
+                                </div>
+                            </div>
+                            <div>
+                                @foreach ($editorsPicksBottom as $item)
+                                    <div class="border-solid border-b-2 border-gray-500 py-4">
+                                        <h3 class="mb-2"><a href="/">{{ $item->short_title }}</a></h3>
+                                        <a href="" class="border-solid text-xs border-l-2 border-red-500 text-black pl-2">{{$item->tags->first()->name}}</a>
+                                    </div>
+                                @endforeach
+                            </div>
+                        </a>
+                        <div class="my-4">
+                            <aside class="">
+                                <div>
+                                    <h1 class="font-bold text-2xl">Top Stories</h1>
+                                    @foreach ($editorsPicksBottom as $item)
+                                        <div class="flex my-1 items-center">
+                                            <span class="font-bold italic text-7xl text-gray-400 font-mono">{{ $topStoryIndex++ }}</span>
+                                            <h2 class="mx-4 text-2xl">{{$item->short_title}}</h2>
+                                        </div>
+                                        <hr>
+                                    @endforeach
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <div class="w-full sm:bg-gray-200">
+        <div>
+            <section>
+                <div>
+                    <h2 class="border-solid border-l-2 border-blue-500 text-bold text-gray-700 text-2xl font-bold my-4 px-2"><a href="">World in Pictures</a></h2>
+                </div>
+                <div>
+                    <a href="/">
+                        <div>
+                            <img src="{{ $worldInPictures->first()->image_url }}" alt="{{ $worldInPictures->first()->short_title }}">
+                        </div>
+                    </a>
+
+                    <div class="my-4">
+                        @foreach ($worldInPictures->skip(1) as $item)
+                            <h1 class="text-base mb-2 py-2"><a href="">{{ $item->short_title }}</a></h1>
+                            <hr>
+                        @endforeach
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <!-- Swiper JS -->
