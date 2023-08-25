@@ -26,12 +26,16 @@ class PostFactory extends Factory
     {
         $locations = [0, 1, 2];
 
+        $faker = \Faker\Factory::create();
+        $faker->addProvider(new \Smknstd\FakerPicsumImages\FakerPicsumImagesProvider($faker));
+
         return [
             'location' => $this->faker->randomElement($locations),
             'title' => $this->faker->sentence,
             'short_title' => $this->faker->sentence(2),
             'summary' => $this->faker->sentence,
             'content' => $this->faker->paragraph,
+            'image_url' => $faker->imageUrl(),
             'user_id' => User::factory(),
             'is_active' => $this->faker->boolean,
         ];

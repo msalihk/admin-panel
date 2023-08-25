@@ -31,10 +31,6 @@
     .swiper-pagination-bullet-active {
         background-color: red;
     }
-
-    .kolonya {
-        transition: width 2s;
-    }
   </style>
 
   @vite('resources/css/app.css')

@@ -1,7 +1,7 @@
 <div class="bg-black text-white relative z-50" x-data="{ open: false, expand: false }" x-transition>
     <header class="bg-black py-3 h-16 container max-w-7xl mx-auto">
-        <div class="container mx-auto flex items-center justify-between h-full">
-            <div class="flex items-center ml-4 xl:ml-0">
+        <div class="mx-4 xl:mx-0 flex items-center justify-between h-full">
+            <div class="flex items-center">
                 <a href="/" class="text-2xl font-bold mr-8">BBC</a>
             </div>
             <div class="flex items-center space-x-6">
@@ -16,11 +16,18 @@
                         <li class="h-full text-center"><a href="/future" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-purple-500">Future</a></li>
                     </ul>
                     <div x-show="expand"
-                        class="absolute inset-x-0 top-0 mx-auto max-w-7xl h-full w-full"
+                        x-transition:enter="transition origin-right ease-linear duration-700"
+                        x-transition:enter-start="transform translate-x-full"
+                        x-transition:enter-end="transform translate-x-0"
+                        x-transition:leave="transition origin-right ease-out duration-500"
+                        x-transition:leave-start="opacity-100"
+                        x-transition:leave-end="opacity-0"
+                        :class="open ? 'h-1/2' : 'h-full'"
+                        class="absolute inset-x-0 top-0 mx-auto max-w-7xl w-full"
                     >
                         <form method="get" action="/search" class="h-full">
                             @csrf
-                            <input type="text" name="query" placeholder="Search in BBC..." class="kolonya appearance-none h-full w-full py-3 pl-5 md:pl-2 pr-12 outline-none text-black">
+                            <input type="text" name="query" placeholder="Search in BBC..." class="appearance-none h-full w-full py-3 pl-5 md:pl-2 pr-12 outline-none text-black">
                             <span class="absolute right-0 top-0 h-full flex items-center pr-6 md:pr-2 space-x-2">
                                 <a class="cursor-pointer">
                                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="text-gray-400 hover:text-black w-6 h-6">

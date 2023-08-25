@@ -58,16 +58,13 @@ class DatabaseSeeder extends Seeder
 
         Post::factory(50)->create([
                 'location' => 0,
-                'image_url' => 'https://picsum.photos/640/480?grayscale'
             ]);
 
         Post::factory(50)->create([
             'location' => 1,
-            'image_url' => 'https://picsum.photos/640/480?grayscale'
         ]);
         Post::factory(50)->create([
              'location' => 2,
-             'image_url' => 'https://picsum.photos/640/480?grayscale'
          ]);
     }
 }
