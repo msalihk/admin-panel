@@ -28,8 +28,13 @@
         text-indent: -99999px;
         height: 2px;
     }
+
     .swiper-pagination-bullet-active {
         background-color: red;
+    }
+
+    h1, h2, h3, p {
+        padding: 0px;
     }
   </style>
 

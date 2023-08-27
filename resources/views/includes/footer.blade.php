@@ -1,44 +1,66 @@
-<div class=" bg-gray-700 text-white">
-    <div class="container max-w-7xl mx-auto">
+<div class=" bg-footerGray text-white">
+    <div class="container max-w-7xl mx-2 md:mx-auto">
         <aside class="my-2 py-2">
-            <div class="font-bold pt-0 my-2 py-2">
+            <div class="pt-0 my-2 py-2">
                 <div>
-                    <h2 class="my-2 py-2">Explore the BBC</h2>
-                    <div class="my-2 py-2">
+                    <h2 class="mb-3 mt-5 leading-none text-2xl">Explore the BBC</h2>
+                    <div class="top-6 overflow-hidden relative pt-0 clear-both m-0 p-0 border-0 align-baseline">
                         <nav>
-                            <ul class="flex space-x-3">
-                                <li>
-                                    <a href="">Home</a>
+                            <ul class="-top-5 -ml-5 list-none overflow-hidden relative m-0 p-0 border-0 align-baseline">
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Home</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">News</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">News</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Sport</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Sport</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Reel</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Reel</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Worklife</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Worklife</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Travel</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Travel</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Future</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Future</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Culture</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Culture</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">TV</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">TV</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Weather</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Weather</span>
+                                    </a>
                                 </li>
-                                <li>
-                                    <a href="">Sounds</a>
+                                <li class="min-w-[16.6%] float-left leading-5 list-item">
+                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                        <span class="text-[13px]">Sounds</span>
+                                    </a>
                                 </li>
                             </ul>
                         </nav>
@@ -46,7 +68,7 @@
                 </div>
             </div>
         </aside>
-        <footer class="border-t-2 border-t-white my-2 py-2">
+        <footer class="border-t-[1px] border-t-footerBorderRight my-2 py-2">
             <ul class="flex space-x-6 my-2 text-xs py-2">
                 <li>
                     <a href="">Terms of Use</a>

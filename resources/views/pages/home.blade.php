@@ -10,9 +10,9 @@
                         @foreach ($sortedPosts as $sortedPost)
                         <div class="swiper-slide">
                             <img src="{{$sortedPost->post->image_url}}" class="block w-full h-full object-cover" alt="Manşet" title="{{$sortedPost->post->short_title}}">
-                            <div class="absolute bottom-0 left-0 w-full h-1/2 text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4 xl:pl-8 md:pt-12 xl:pt-48">
-                                <h3 class="text-4xl font-semibold text-white pb-2">{{$sortedPost->post->short_title}}</h3>
-                                <a href="" class="border-solid bottom-2 border-l-2 border-red-500 text-white pl-2">{{$sortedPost->post->tags->first()->name}}</a>
+                            <div class="absolute bottom-0 pt-20 pr-8 pl-8 pb-12 left-0 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
+                                <h3 class="text-5xl font-semibold mb-3 tracking-wide text-white">{{$sortedPost->post->title}}</h3>
+                                <a href="" class="border-solid tracking-wide border-l-2 border-red-500 text-sm text-white pl-2">{{$sortedPost->post->tags->first()->name}}</a>
                             </div>
                         </div>
                         @endforeach
@@ -25,9 +25,9 @@
                     @foreach ($headlineRightNews as $headlineRightNew)
                         <div class="shadow-md border-black cursor-pointer relative md:col-span-1 xl:row-span-1">
                             <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="object-cover box-border h-[9.375rem] sm:h-full w-full">
-                            <div class="absolute bottom-0 left-0 h-1/2 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4 xl:pl-4 md:pt-6">
-                                <h3 class="text-base font-semibold text-white py-2">{{$headlineRightNew->post->short_title}}</h3>
-                                <a href="" class="border-solid border-l-2 border-red-500 text-sm text-white pl-2">{{$headlineRightNew->post->tags->first()->name}}</a>
+                            <div class="absolute bottom-0 w-full left-0 pt-12 px-3 pb-3 text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
+                                <h3 class="text-xl font-semibold mb-2 text-white">{{ $headlineRightNew->post->title }}</h3>
+                                <a href="" class="border-solid tracking-wide border-l-2 border-red-500 text-sm text-white pl-2">{{$headlineRightNew->post->tags->first()->name}}</a>
                             </div>
                         </div>
                     @endforeach
@@ -41,10 +41,10 @@
                   <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
                       @foreach ($newsPosts as $item)
                           <div class="col-span-1">
-                              <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-3">
-                              <h3 class="font-bold block text-black text-lg">
-                                <a href="/">{{ $item->short_title }}</a>
-                              </h3>
+                            <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-2">
+                            <h3 class="font-bold block text-black text-xl">
+                              <a href="/">{{ $item->title }}</a>
+                            </h3>
                               <a href="" class="border-solid border-l-2 border-red-500 text-black text-sm py-0 px-2">{{ $item->tags->first()->name }}</a>
                           </div>
                       @endforeach
@@ -70,7 +70,11 @@
         </section>
     </div>
 
-    <div class="w-full md:bg-gray-100">
+    <div>
+        <a class="weatherwidget-io" href="https://forecast7.com/en/41d0128d98/istanbul/" data-label_1="İSTANBUL" data-label_2="WEATHER" data-theme="dark" >İSTANBUL WEATHER</a>
+    </div>
+
+    <div class="w-full md:bg-gray-100 mb-10">
         <div class="container mx-auto max-md:my-6 max-w-7xl xl:space-y-10">
             <section id="top-stories" class="py-4">
                 <div>
@@ -124,7 +128,7 @@
         </div>
     </div>
 
-    <div class="w-full md:bg-gray-100">
+    <div class="w-full">
         <div class="container mx-auto max-w-7xl">
             <section>
                 <div>
@@ -189,5 +193,7 @@
         },
       },
     });
+    // Weather Widget
+    !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
   </script>
 @endsection

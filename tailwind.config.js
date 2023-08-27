@@ -16,6 +16,8 @@ export default {
                 primary: colors.blue,
                 success: colors.green,
                 warning: colors.yellow,
+                footerGray: '#4c4c4c',
+                footerBorderRight: '#949494',
             },
             fontFamily: {
                 'roboto': ['Roboto', 'sans-serif'],
