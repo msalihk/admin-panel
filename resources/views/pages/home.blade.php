@@ -1,8 +1,8 @@
 @extends('layouts.default')
 
 @section('content')
-    <div class="container mx-auto mt-4 max-w-7xl xl:space-y-8">
-        <section id="manset" class="mb-20 xl:grid xl:grid-cols-3 gap-4 space-y-4 xl:space-y-0">
+    <div class="container mx-auto mt-4 max-w-7xl">
+        <section id="manset" class="mb-20 xl:grid xl:grid-cols-3 gap-4">
             <div class="xl:col-span-2">
                 <!-- Swiper -->
                 <div class="swiper mySwiper h-56 sm:h-[18.75rem] lg:h-[28.125rem] xl:h-[37.5rem]">
@@ -11,8 +11,9 @@
                         <div class="swiper-slide">
                             <img src="{{$sortedPost->post->image_url}}" class="block w-full h-full object-cover" alt="Manşet" title="{{$sortedPost->post->short_title}}">
                             <div class="absolute bottom-0 pt-20 pr-8 pl-8 pb-12 left-0 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
-                                <h3 class="text-5xl font-semibold mb-3 tracking-wide text-white">{{$sortedPost->post->title}}</h3>
-                                <a href="" class="border-solid tracking-wide border-l-2 border-red-500 text-sm text-white pl-2">{{$sortedPost->post->tags->first()->name}}</a>
+                                <h3 class="text-5xl font-semibold mb-3 tracking-wide text-white">{{$sortedPost->post->short_title}}</h3>
+                                <p class="text-subtext line-clamp-3 text-base m-0 mt-0.5">{{ $sortedPost->post->summary }}</p>
+                                <a href="" class="tracking-wide before:content-['#'] before:font-bold before:text-bbcRed before:mr-2 uppercase text-sm text-subtext">{{$sortedPost->post->tags->first()->name}}</a>
                             </div>
                         </div>
                         @endforeach
@@ -27,7 +28,7 @@
                             <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="object-cover box-border h-[9.375rem] sm:h-full w-full">
                             <div class="absolute bottom-0 w-full left-0 pt-12 px-3 pb-3 text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
                                 <h3 class="text-xl font-semibold mb-2 text-white">{{ $headlineRightNew->post->title }}</h3>
-                                <a href="" class="border-solid tracking-wide border-l-2 border-red-500 text-sm text-white pl-2">{{$headlineRightNew->post->tags->first()->name}}</a>
+                                <a href="" class="before:content-['#'] before:text-bbcRed before:mr-2 tracking-wide text-sm text-subtext uppercase">{{$headlineRightNew->post->tags->first()->name}}</a>
                             </div>
                         </div>
                     @endforeach
@@ -35,9 +36,11 @@
             </div>
         </section>
         <section id="manset olmayan haberler" class="">
-            <section class="my-4">
+            <section class="mb-20">
                 <div class="space-y-4">
-                  <h2 class="border-solid border-l-2 border-red-500 text-bold text-gray-700 text-2xl font-bold py-0 px-2"><a href="">News</a></h2>
+                  <h2 class="border-solid border-l-2 border-red-500 text-bold text-gray-700 text-2xl leading-none font-bold py-0 px-2">
+                    <a href="">News</a>
+                  </h2>
                   <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
                       @foreach ($newsPosts as $item)
                           <div class="col-span-1">
@@ -45,15 +48,18 @@
                             <h3 class="font-bold block text-black text-xl">
                               <a href="/">{{ $item->title }}</a>
                             </h3>
-                              <a href="" class="border-solid border-l-2 border-red-500 text-black text-sm py-0 px-2">{{ $item->tags->first()->name }}</a>
+                            <p class="text-black line-clamp-3">{{ $item->summary }}</p>
+                            <a href="" class="before:content-['#'] before:text-bbcRed before:mr-2 text-black text-sm py-0  block overflow-hidden whitespace-nowrap uppercase bottom-0 left-0 right-0 mt-0 z-10">{{ $item->tags->first()->name }}</a>
                           </div>
                       @endforeach
                   </div>
                 </div>
               </section>
-              <section class="my-4">
+              <section class="mb-20">
               <div class="space-y-4">
-                  <h2 class="border-solid border-l-2 border-yellow-500 text-bold text-gray-700 text-2xl font-bold px-2"><a href="">Sports</a></h2>
+                  <h2 class="border-solid border-l-2 border-yellow-500 text-bold text-gray-700 text-2xl leading-none font-bold px-2 py-0">
+                    <a href="">Sports</a>
+                </h2>
                   <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
                       @foreach ($sportsPosts as $item)
                         <div class="col-span-1">
@@ -61,7 +67,8 @@
                             <h3 class="font-bold block text-black text-lg">
                                 <a href="/">{{ $item->short_title }}</a>
                             </h3>
-                            <a href="" class="border-solid border-l-2 border-red-500 text-black text-sm py-0 px-2">{{ $item->tags->first()->name }}</a>
+                            <h6 class="text-black line-clamp-3">{{ $item->summary }}</h6>
+                            <a href="" class="before:content-['#'] before:text-bbcRed before:mr-2 text-black text-sm uppercase py-0">{{ $item->tags->first()->name }}</a>
                         </div>
                       @endforeach
                   </div>
@@ -70,11 +77,13 @@
         </section>
     </div>
 
-    <div>
-        <a class="weatherwidget-io" href="https://forecast7.com/en/41d0128d98/istanbul/" data-label_1="İSTANBUL" data-label_2="WEATHER" data-theme="dark" >İSTANBUL WEATHER</a>
+    <div class="container max-w-7xl mx-auto">
+        <section class="mb-20">
+            <a class="weatherwidget-io" href="https://forecast7.com/en/41d0128d98/istanbul/" data-label_1="İSTANBUL" data-label_2="WEATHER" data-font="Roboto" data-theme="weather_one" >İSTANBUL WEATHER</a>
+        </section>
     </div>
 
-    <div class="w-full md:bg-gray-100 mb-10">
+    <div class="w-full md:bg-gray-100 mb-20">
         <div class="container mx-auto max-md:my-6 max-w-7xl xl:space-y-10">
             <section id="top-stories" class="py-4">
                 <div>
@@ -87,7 +96,8 @@
                                         <img src="{{$editorsPicks->first()->image_url}} alt="News Image" class="object-cover box-border aspect-video h-full w-full">
                                         <div class="absolute bottom-0 left-0 h-1/2 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4">
                                             <h3 class="text-sm font-semibold text-white py-2 mb-2">{{$editorsPicks->first()->short_title}}</h3>
-                                            <a href="" class="border-solid border-l-2 border-red-500 text-white pl-2">{{$editorsPicks->first()->tags->first()->name}}</a>
+                                            <h6 class="text-white line-clamp-3">{{ $sortedPost->post->summary }}</h6>
+                                            <a href="" class="before:content-['#'] before:text-bbcRed before:mr-2 text-white">{{$editorsPicks->first()->tags->first()->name}}</a>
                                         </div>
                                     </div>
                                 </a>
@@ -98,7 +108,8 @@
                                                     <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" class="max-sm:hidden object-cover box-border aspect-video w-full h-full">
                                                     <div class="absolute bottom-0 left-0  h-1/2 w-full text-left sm:bg-opacity-90 sm:bg-gradient-to-t sm:from-gray-900 pl-4">
                                                         <h3 class="text-black sm:text-white"><a href="/">{{ $item->short_title }}</a></h3>
-                                                        <a href="" class="border-solid text-xs border-l-2 border-red-500 text-black sm:text-white pl-2">{{$item->tags->first()->name}}</a>
+                                                        <h6 class="text-white line-clamp-3">{{ $item->summary }}</h6>
+                                                        <a href="" class="text-xs before:content-['#'] before:text-bbcRed before:mr-2 text-black sm:text-white">{{$item->tags->first()->name}}</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -106,10 +117,15 @@
                                         @endforeach
                                 </div>
                             </div>
-                            <div class="my-4 md:my-0 md:col-span-1">
+                            <div class="md:col-span-1">
                                 <aside class="">
                                     <div>
-                                        <h1 class="font-bold text-2xl">Top Stories</h1>
+                                        <div class="mb-10">
+                                            <div class="flex items-center relative">
+                                                <h1 class="absolute bg-gray-100 pr-4 font-bold mt-0 pt-0 text-2xl">Top Stories</h1>
+                                                <div class="border-[1px] w-full h-0 border-bbcRed before:mr-2 border-solid"></div>
+                                            </div>
+                                        </div>
                                         @foreach ($editorsPicksBottom as $item)
                                             <div class="flex my-1 items-center">
                                                 <span class="font-bold italic text-2xl md:text-7xl text-gray-400 font-mono">{{ $topStoryIndex++ }}</span>
@@ -130,7 +146,7 @@
 
     <div class="w-full">
         <div class="container mx-auto max-w-7xl">
-            <section>
+            <section class="mb-20">
                 <div>
                     <h2 class="border-solid border-l-2 border-blue-500 text-bold text-gray-700 text-2xl font-bold max-md:my-4 px-2"><a href="">World in Pictures</a></h2>
                 </div>
@@ -154,21 +170,21 @@
                                     </div>
                                     <div class="absolute bottom-0 left-0  h-1/2 w-full text-left sm:bg-opacity-90 sm:bg-gradient-to-t sm:from-gray-900 pl-4">
                                         <h3 class="text-black sm:text-white"><a href="/">{{ $item->short_title }}</a></h3>
-                                        <a href="" class="border-solid text-xs border-l-2 border-red-500 text-black sm:text-white pl-2">{{$item->tags->first()->name}}</a>
+                                        <a href="" class="text-xs before:content-['#'] before:text-bbcRed before:mr-2 text-black sm:text-white">{{$item->tags->first()->name}}</a>
                                     </div>
                                 </div>
                             @else
                                 <div class="col-span-2 bg-white relative shadow-md">
-                                    <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" class="object-cover aspect-video box-border">
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" class="object-cover box-border">
                                     <div class="top-0 left-0 absolute">
                                         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-10 h-10 bg-black text-white p-1">
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
                                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
                                         </svg>
                                     </div>
-                                    <div class="bottom-0 left-0 w-full text-left mt-4 ml-4">
+                                    <div class="bottom-0 left-0 w-full text-left mt-1 ml-4">
                                         <h3 class="text-black sm:text-black"><a href="/">{{ $item->short_title }}</a></h3>
-                                        <a href="" class="border-solid text-xs border-l-2 border-red-500 text-black sm:text-black pl-2">{{$item->tags->first()->name}}</a>
+                                        <a href="" class="text-xs before:content-['#'] before:text-bbcRed before:mr-2 text-black sm:text-black">{{$item->tags->first()->name}}</a>
                                     </div>
                                 </div>
                             @endif

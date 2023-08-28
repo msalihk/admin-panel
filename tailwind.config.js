@@ -18,6 +18,8 @@ export default {
                 warning: colors.yellow,
                 footerGray: '#4c4c4c',
                 footerBorderRight: '#949494',
+                bbcRed: '#e91802',
+                subtext: '#d3d3d3',
             },
             fontFamily: {
                 'roboto': ['Roboto', 'sans-serif'],

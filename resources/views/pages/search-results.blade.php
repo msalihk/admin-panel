@@ -19,7 +19,7 @@
                 </div>
             @else
             <div class="flex justify-center items-center h-40 my-40 flex-col">
-                <p class="text-gray-600 text-lg">Aradığınız kelimeyle ilişkili haber bulunamadı.</p>
+                <p class="text-gray-600 text-lg">"{{ $query }}" ile ilişkili haber bulunamadı.</p>
                 <p class="bg-black mt-8 text-white p-2"><a href="/">Anasayfaya dön</a></p>
             </div>
             @endif

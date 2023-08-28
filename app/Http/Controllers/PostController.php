@@ -13,9 +13,11 @@ class PostController extends Controller
     {
         $query = $request->input('query');
 
-        $posts = Post::search($query)->get();
+        $posts = Post::where('short_title', 'LIKE', "%$query%")
+            ->orWhere('title', 'LIKE', "%$query%")
+            ->get();;
 
-        return view('pages.search-results', compact('posts'));
+        return view('pages.search-results', compact('query', 'posts'));
     }
 
     public function navigation($category)
