@@ -8,7 +8,7 @@
                 <nav class="">
                     <ul class="xl:flex xl:space-x-6 invisible xl:visible">
                         <li class="h-full text-center"><a href="/" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-white">Home</a></li>
-                        <li class="h-full text-center"><a href="/news" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-red-500">News</a></li>
+                        <li class="h-full text-center"><a href="/categories/news" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-red-500">News</a></li>
                         <li class="h-full text-center"><a href="/sport" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-yellow-500">Sport</a></li>
                         <li class="h-full text-center"><a href="/reels" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-500">Reels</a></li>
                         <li class="h-full text-center"><a href="/worklife" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-700">Worklife</a></li>
@@ -16,9 +16,9 @@
                         <li class="h-full text-center"><a href="/future" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-purple-500">Future</a></li>
                     </ul>
                     {{-- Hamburger Menu --}}
-                    <div x-show="hamburger" class="z-50 h-screen w-screen bg-black fixed inset-0"
+                    <div x-show="hamburger" x-cloak class="z-50 h-screen w-full md:w-1/2 justify-end bg-black fixed inset-0"
                         x-transition:enter="transition origin-top ease-out duration-300"
-                        x-transition:enter-start="transform translate-x-full opacity-0"
+                        x-transition:enter-start="transform -translate-x-full opacity-0"
                         x-transition:enter-end="transform translate-x-0 opacity-100"
                         x-transition:leave="transition origin-top ease-out duration-300"
                         x-transition:leave-start="opacity-100"
@@ -48,15 +48,15 @@
 
                             </a>
                     </div>
-                    <div x-show="expand"
+                    <div x-show="expand" x-cloak
                     x-transition:enter="transition origin-top ease-out duration-300"
                     x-transition:enter-start="transform -translate-y-full opacity-0"
                     x-transition:enter-end="transform translate-y-0 opacity-100"
                     x-transition:leave="transition origin-top ease-out duration-300"
                     x-transition:leave-start="opacity-100"
                     x-transition:leave-end="opacity-0"
-                        :class="open ? 'h-1/2' : 'h-full'"
-                        class="absolute inset-x-0 top-0 mx-auto h-full max-w-7xl w-full "
+                    :class="open ? 'h-1/2' : 'h-full'"
+                    class="absolute inset-x-0 top-0 mx-auto max-w-7xl w-full "
                     >
                         <form method="get" action="/search" class="h-full ">
                             @csrf
@@ -102,7 +102,7 @@
             </div>
         </div>
     </header>
-    <div x-show="open" x-transition class="bg-black py-3 h-16 container max-w-7xl mx-auto">
+    <div x-show="open" x-cloak x-transition class="bg-black py-3 h-16 container max-w-7xl mx-auto">
         <section class="container mx-auto flex items-center justify-between h-full">
             <nav>
                 <ul class="flex space-x-6">

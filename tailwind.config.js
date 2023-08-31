@@ -20,6 +20,10 @@ export default {
                 footerBorderRight: '#949494',
                 bbcRed: '#e91802',
                 subtext: '#d3d3d3',
+                tagGray: '#767676',
+                sectionGray: '#4a4a4a',
+                gray212121: '#212121',
+                newsRed: '#B80000',
             },
             fontFamily: {
                 'roboto': ['Roboto', 'sans-serif'],

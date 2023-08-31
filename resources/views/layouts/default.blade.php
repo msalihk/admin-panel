@@ -8,7 +8,7 @@
 
     @include('includes.header')
 
-    <main class="mx-4 xl:mx-0">
+    <main class="">
         @yield('content')
     </main>
 

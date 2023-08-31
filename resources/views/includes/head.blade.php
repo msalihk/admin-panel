@@ -39,6 +39,10 @@
     h1, h2, h3, p {
         padding: 0px;
     }
+
+    [x-cloak] {
+        display: none !important;
+    }
   </style>
 
   @vite('resources/css/app.css')

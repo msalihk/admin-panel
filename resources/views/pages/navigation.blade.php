@@ -1,5 +1,5 @@
 @extends('layouts.default')
 
 @section('content')
-    <h1>{{ $category }}</h1>
+    <h1>Kategori detay</h1>
 @endsection

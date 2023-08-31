@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NavigationController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\SpecialSortController;
 use App\Models\Category;
@@ -24,7 +25,9 @@ use function Laravel\Prompts\search;
 
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/categories/news', [PostController::class, 'navigation'])->name('news');
+Route::get('/categories/{$category}', NavigationController::class);
+
+Route::get('/post-detail/{id}', [PostController::class, 'postDetail'])->name('post-detail');
 
 Route::get('/search', [PostController::class, 'search'])->name('search');
 

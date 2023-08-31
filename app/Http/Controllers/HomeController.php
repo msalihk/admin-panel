@@ -30,9 +30,10 @@ class HomeController extends Controller
             ->orderBy('created_at', 'desc')
             ->take(3)->get();
         $topStoryIndex = 1;
+        $topStories = Post::where('is_active', 1)->orderBy('created_at', 'desc')->get();
         $worldInPictures = Post::where('is_active', 1)->orderBy('created_at', 'desc')->take(5)->get();
 
         return view('pages.home', compact('categories', 'footerCategories', 'sortedPosts', 'headlineRightNews',
-                    'editorsPicks','editorsPicksBottom', 'newsPosts', 'sportsPosts', 'topStoryIndex', 'worldInPictures'));
+                    'editorsPicks','editorsPicksBottom', 'newsPosts', 'sportsPosts', 'topStoryIndex', 'worldInPictures', 'topStories'));
     }
 }
