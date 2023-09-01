@@ -9,11 +9,11 @@
                     <ul class="xl:flex xl:space-x-6 invisible xl:visible">
                         <li class="h-full text-center"><a href="/" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-white">Home</a></li>
                         <li class="h-full text-center"><a href="/categories/news" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-red-500">News</a></li>
-                        <li class="h-full text-center"><a href="/sport" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-yellow-500">Sport</a></li>
-                        <li class="h-full text-center"><a href="/reels" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-500">Reels</a></li>
-                        <li class="h-full text-center"><a href="/worklife" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-700">Worklife</a></li>
-                        <li class="h-full text-center"><a href="/travel" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-green-500">Travel</a></li>
-                        <li class="h-full text-center"><a href="/future" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-purple-500">Future</a></li>
+                        <li class="h-full text-center"><a href="/categories/sport" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-yellow-500">Sport</a></li>
+                        <li class="h-full text-center"><a href="/categories/reels" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-500">Reels</a></li>
+                        <li class="h-full text-center"><a href="/categories/worklife" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-700">Worklife</a></li>
+                        <li class="h-full text-center"><a href="/categories/travel" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-green-500">Travel</a></li>
+                        <li class="h-full text-center"><a href="/categories/future" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-purple-500">Future</a></li>
                     </ul>
                     {{-- Hamburger Menu --}}
                     <div x-show="hamburger" x-cloak class="z-50 h-screen w-full md:w-1/2 justify-end bg-black fixed inset-0"
@@ -106,10 +106,10 @@
         <section class="container mx-auto flex items-center justify-between h-full">
             <nav>
                 <ul class="flex space-x-6">
-                    <li class="h-full text-center"><a href="/culture" class="hover:border-solid hover:border-b-4 hover:border-white">Culture</a></li>
-                    <li class="h-full text-center"><a href="/tv" class="hover:border-solid hover:border-b-4 hover:border-red-500">TV</a></li>
-                    <li class="h-full text-center"><a href="/weather" class="hover:border-solid hover:border-b-4 hover:border-yellow-500">Weather</a></li>
-                    <li class="h-full text-center"><a href="/sounds" class="hover:border-solid hover:border-b-4 hover:border-blue-500">Sounds</a></li>
+                    <li class="h-full text-center"><a href="/categories/culture" class="hover:border-solid hover:border-b-4 hover:border-white">Culture</a></li>
+                    <li class="h-full text-center"><a href="/categories/tv" class="hover:border-solid hover:border-b-4 hover:border-red-500">TV</a></li>
+                    <li class="h-full text-center"><a href="/categories/weather" class="hover:border-solid hover:border-b-4 hover:border-yellow-500">Weather</a></li>
+                    <li class="h-full text-center"><a href="/categories/sounds" class="hover:border-solid hover:border-b-4 hover:border-blue-500">Sounds</a></li>
                 </ul>
             </nav>
             <a x-on:click="open = ! open" class="cursor-pointer hover:border-solid hover:border-b-2 text-center hover:border-white">

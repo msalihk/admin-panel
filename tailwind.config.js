@@ -24,6 +24,7 @@ export default {
                 sectionGray: '#4a4a4a',
                 gray212121: '#212121',
                 newsRed: '#B80000',
+                detailBlack: '#141414',
             },
             fontFamily: {
                 'roboto': ['Roboto', 'sans-serif'],

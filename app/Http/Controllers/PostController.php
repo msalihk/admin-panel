@@ -26,8 +26,12 @@ class PostController extends Controller
     {
         $post = Post::find($id);
 
+        $hours = $post->created_at->diffForHumans();
+
+        $topStories = Post::where('is_active', 1)->latest()->take(10)->get();
+
         $category = $post->categories->first()->name;
 
-        return view('pages.post-detail', compact('post', 'category'));
+        return view('pages.post-detail', compact('post', 'category', 'hours', 'topStories'));
     }
 }

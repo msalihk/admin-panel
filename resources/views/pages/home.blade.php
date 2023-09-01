@@ -10,38 +10,37 @@
                         <div class="swiper-wrapper">
                             @foreach ($sortedPosts as $sortedPost)
                             <div class="swiper-slide relative">
-                                <img src="{{$sortedPost->post->image_url}}" class="block w-full h-full object-cover" alt="Manşet" title="{{$sortedPost->post->short_title}}">
-                                <div class="absolute bottom-0 pt-20 pr-8 pl-8 pb-14 left-0 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
+                                <img src="{{$sortedPost->post->image_url}}" class="block w-full h-full object-cover" alt="{{ $sortedPost->post->title }}" width="848" height="600" title="{{$sortedPost->post->short_title}}">
+                                <div class="absolute bottom-0 z-10 pt-20 pr-8 pl-8 pb-14 left-0 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
                                     <h3 class="text-5xl font-semibold mb-3 tracking-wide text-white">{{$sortedPost->post->short_title}}</h3>
                                     <p class="text-subtext line-clamp-3 mb-3 text-base m-0 mt-0.5">{{ $sortedPost->post->summary }}</p>
-                                    <a href="" class="absolute z-20 bottom-10 tracking-wide uppercase text-sm text-subtext">
-                                        <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
-                                        <span class="hover:underline hover:text-white">{{$sortedPost->post->tags->first()->name}}</span>
-                                    </a>
                                 </div>
-                                <a href="/post-detail/{{ $sortedPost->post->id }}" class="w-full h-full absolute z-10"></a>
+                                <a href="" class="absolute z-50 left-8 bottom-10 tracking-wide uppercase text-sm text-subtext">
+                                    <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                    <span class="hover:underline hover:text-white">{{$sortedPost->post->tags->first()->name}}</span>
+                                </a>
+                                <a href="/post-detail/{{ $sortedPost->post->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-20"></a>
                             </div>
                             @endforeach
                         </div>
-                        <div class="swiper-pagination invisible sm:visible absolute z-30"></div>
+                        <div class="swiper-pagination invisible sm:visible absolute z-30 py-2 items-center"></div>
                     </div>
                 </div>
                 <div class="xl:col-span-1 gap-2">
                     <div class="grid grid-cols-1 sm:grid-cols-3 xl:grid-rows-3 xl:grid-cols-none gap-5 lg:h-[14.0625rem] xl:h-[37.5rem] justify-between xl:justify-normal">
                         @foreach ($headlineRightNews as $headlineRightNew)
                             <div class="shadow-md border-black relative md:col-span-1 xl:row-span-1">
-                                <a href="/post-detail/{{ $sortedPost->post->id }}">
-                                    <img src="{{$headlineRightNew->post->image_url}} alt="News Image" class="object-cover box-border h-[9.375rem] sm:h-full w-full">
-                                    <div class="absolute bottom-0 w-full left-0 pt-12 px-3 pb-3 text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
-                                        <h3 class="text-xl font-semibold mb-2 text-white">{{ $headlineRightNew->post->title }}</h3>
-                                        <a href="" class="absolute z-20 tracking-wide uppercase bottom-1 left-1 text-sm text-subtext">
-                                            <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
-                                            <span class="hover:underline hover:text-white">{{ $headlineRightNew->post->tags->first()->name }}</span>
-                                        </a>
+                                    <img src="{{$headlineRightNew->post->image_url}} alt="{{ $headlineRightNew->post->title }}" width="416" height="186.66" class="object-cover box-border h-[9.375rem] sm:h-full w-full">
+                                    <div class="absolute bottom-0 w-full left-0 pt-12 px-3 pb-6 text-left bg-opacity-90 bg-gradient-to-t from-gray-900">
+                                        <h3 class="text-xl font-semibold mb-2 text-white">{{ $headlineRightNew->post->short_title }}</h3>
                                     </div>
-                                </a>
+                                    <a href="" class="absolute z-20 tracking-wide uppercase bottom-3 left-3 text-sm text-subtext">
+                                        <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                        <span class="hover:underline hover:text-white">{{ $headlineRightNew->post->tags->first()->name }}</span>
+                                    </a>
+                                    <a href="/post-detail/{{ $sortedPost->post->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-10"></a>
                             </div>
-                            <a href="/post-detail/{{ $sortedPost->post->id }}" class="absolute z-10"></a>
+
                         @endforeach
                     </div>
                 </div>
@@ -55,7 +54,7 @@
                       <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
                           @foreach ($newsPosts as $item)
                               <div class="col-span-1 relative">
-                                <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-2">
+                                <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="413.33" height="232.48" class="aspect-video object-cover mb-2">
                                 <div class="pt-2 pb-8 pl-0 pr-0">
                                     <h3 class="font-bold block text-black text-xl">
                                         <a href="/post-detail/{{ $sortedPost->post->id }}">{{ $item->title }}</a>
@@ -76,7 +75,7 @@
                       <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
                           @foreach ($sportsPosts as $item)
                           <div class="col-span-1 relative">
-                            <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-2">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="413.33" height="232.48" class="aspect-video object-cover mb-2">
                             <div class="pt-2 pb-8 pl-0 pr-0">
                                 <h3 class="font-bold block text-black text-xl">
                                     <a href="/">{{ $item->title }}</a>
