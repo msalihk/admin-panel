@@ -35,7 +35,7 @@ Route::get('/search', [PostController::class, 'search'])->name('search');
 // Navigation
 Route::prefix('/categories')->group(function () {
     Route::get('/news', [CategoryController::class, 'news']);
-    Route::get('/sport', [CategoryController::class, 'sport']);
+    Route::get('/sports', [CategoryController::class, 'sports']);
     Route::get('/reels', [CategoryController::class, 'reels']);
     Route::get('/worklife', [CategoryController::class, 'worklife']);
     Route::get('/travel', [CategoryController::class, 'travel']);

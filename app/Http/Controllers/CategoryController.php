@@ -31,10 +31,10 @@ class CategoryController extends Controller
         return view('pages.navigation.news', compact('posts'));
     }
 
-    public function sport(): View
+    public function sports(): View
     {
         $posts = Post::where('is_active', 1)->whereHas('categories', function ($query) {
-            $query->where('name', "Sport");
+            $query->where('name', "Sports");
         })
             ->latest()
             ->get();

@@ -19,8 +19,8 @@
             </div>
         @else
         <div class="flex justify-center items-center h-40 my-40 flex-col">
-            <p class="text-gray-600 text-lg">There are no post in "Sport" Category</p>
-            <p class="bg-black mt-8 text-white p-2"><a href="/">Anasayfaya dön</a></p>
+            <p class="text-gray-600 text-lg">There are no post in "Sports" Category</p>
+            <p class="bg-black mt-8 text-white p-2"><a href="/">Go back to the home page</a></p>
         </div>
         @endif
     </div>

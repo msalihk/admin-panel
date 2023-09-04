@@ -9,7 +9,7 @@
                     <ul class="xl:flex xl:space-x-6 invisible xl:visible">
                         <li class="h-full text-center"><a href="/" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-white">Home</a></li>
                         <li class="h-full text-center"><a href="/categories/news" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-red-500">News</a></li>
-                        <li class="h-full text-center"><a href="/categories/sport" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-yellow-500">Sport</a></li>
+                        <li class="h-full text-center"><a href="/categories/sports" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-yellow-500">Sports</a></li>
                         <li class="h-full text-center"><a href="/categories/reels" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-500">Reels</a></li>
                         <li class="h-full text-center"><a href="/categories/worklife" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-blue-700">Worklife</a></li>
                         <li class="h-full text-center"><a href="/categories/travel" class="cursor-pointer hover:border-solid hover:border-b-4 hover:border-green-500">Travel</a></li>
