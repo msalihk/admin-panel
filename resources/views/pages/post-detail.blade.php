@@ -30,7 +30,7 @@
             <div class="bg-white w-full py-3 border-solid border-2 border-black">
             @break
 
-        @case('Tv')
+        @case('TV')
             <div class="bg-bbcRed w-full py-3">
             @break
 

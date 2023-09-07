@@ -8,57 +8,57 @@
                         <nav>
                             <ul class="-top-5 -ml-5 list-none overflow-hidden relative m-0 p-0 border-0 align-baseline">
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Home</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/news" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">News</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/sports" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Sport</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/reels" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Reel</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/worklife" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Worklife</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/travel" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Travel</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/future" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Future</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/culture" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Culture</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/tv" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">TV</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/weather" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Weather</span>
                                     </a>
                                 </li>
                                 <li class="min-w-[16.6%] float-left leading-5 list-item">
-                                    <a href="" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
+                                    <a href="/categories/sounds" class="pt-5 pr-5 ml-5 block border-r-[1px] border-solid border-footerBorderRight">
                                         <span class="text-[13px]">Sounds</span>
                                     </a>
                                 </li>

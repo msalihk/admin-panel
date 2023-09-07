@@ -11,11 +11,12 @@
             @if ($posts->count() > 0)
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                     @foreach ($posts as $item)
-                        <div class="col-span-1 border-2 shadow-md">
+                        <div class="col-span-1 border-2 shadow-md relative">
                             <div class="p-4">
                                 <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="" height="" class="aspect-video object-cover mb-3">
                                 <span style="display: block; font-weigth: 500; font-size:18px; line-height: 26px; color: black;">{{ $item->short_title }}</span>
                             </div>
+                            <a href="/post-detail/{{ $item->id }}" class="absolute z-30 left-0 bottom-0 right-0 top-0"></a>
                         </div>
                     @endforeach
                 </div>
