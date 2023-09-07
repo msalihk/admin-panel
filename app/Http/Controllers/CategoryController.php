@@ -100,7 +100,7 @@ class CategoryController extends Controller
     public function tv(): View
     {
         $posts = Post::where('is_active', 1)->whereHas('categories', function ($query) {
-            $query->where('name', "Tv");
+            $query->where('name', "TV");
         })
             ->latest()
             ->get();

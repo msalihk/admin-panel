@@ -25,6 +25,10 @@ export default {
                 gray212121: '#212121',
                 newsRed: '#B80000',
                 detailBlack: '#141414',
+                hoursGray: '#545658',
+                lineGray: '#8A8C8E',
+                topGray: '#F6F6F6',
+                bbcYellow: '#FFD230',
             },
             fontFamily: {
                 'roboto': ['Roboto', 'sans-serif'],

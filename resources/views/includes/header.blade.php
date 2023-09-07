@@ -37,7 +37,7 @@
                                 <li class="h-full align-middle text-center text-2xl"><a href="/culture" class="hover:border-solid hover:border-b-4 hover:border-white">Culture</a></li>
                                 <li class="h-full align-middle text-center text-2xl"><a href="/tv" class="hover:border-solid hover:border-b-4 hover:border-red-500">TV</a></li>
                                 <li class="h-full align-middle text-center text-2xl"><a href="/weather" class="hover:border-solid hover:border-b-4 hover:border-yellow-500">Weather</a></li>
-                                <li class="h-full align-middle text-center text-2xl"><a href="/sounds" class="hover:border-solid hover:border-b-4 hover:border-blue-500">Sounds</a></li>
+                                <li class="h-full align-middle text-center text-2xl"><a href="/sounds" class="hover:border-solid hover:border-b-4 hover:border-orange-500">Sounds</a></li>
                               </ul>
 
                               <!-- Close Button -->
@@ -109,7 +109,7 @@
                     <li class="h-full text-center"><a href="/categories/culture" class="hover:border-solid hover:border-b-4 hover:border-white">Culture</a></li>
                     <li class="h-full text-center"><a href="/categories/tv" class="hover:border-solid hover:border-b-4 hover:border-red-500">TV</a></li>
                     <li class="h-full text-center"><a href="/categories/weather" class="hover:border-solid hover:border-b-4 hover:border-yellow-500">Weather</a></li>
-                    <li class="h-full text-center"><a href="/categories/sounds" class="hover:border-solid hover:border-b-4 hover:border-blue-500">Sounds</a></li>
+                    <li class="h-full text-center"><a href="/categories/sounds" class="hover:border-solid hover:border-b-4 hover:border-orange-500">Sounds</a></li>
                 </ul>
             </nav>
             <a x-on:click="open = ! open" class="cursor-pointer hover:border-solid hover:border-b-2 text-center hover:border-white">

@@ -2,11 +2,13 @@
 
 @section('content')
 <div class="">
+    <div class="bg-purple-500 w-full py-3 mb-20">
+        <div class="container mx-auto max-w-7xl">
+            <span class="uppercase mx-4 xl:mx-0 text-black text-4xl font-bold py-2">Future</span>
+        </div>
+    </div>
     <div class="container max-w-7xl mx-auto">
         @if ($posts->count() > 0)
-            <h2 class="my-5 text-2xl">
-                Future
-            </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
                 @foreach ($posts as $item)
                     <div class="col-span-1 border-2 shadow-md">
