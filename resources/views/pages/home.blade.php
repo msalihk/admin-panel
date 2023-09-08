@@ -238,6 +238,34 @@
             <iframe width="100%" height="166" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/210038222&color=%23e91802&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/bbc-world-service" title="BBC World Service Radio" target="_blank" style="color: #cccccc; text-decoration: none;">BBC World Service Radio</a> · <a href="https://soundcloud.com/bbc-world-service/a-world-without-oil" title="A world without oil" target="_blank" style="color: #cccccc; text-decoration: none;">A world without oil</a></div>
         </div>
 
+        <div class="container mx-auto max-w-7xl">
+            <section class="mb-20">
+                <div class="">
+                  <h2 class="before:border-solid before:border-l-2 before:border-green-500 before:mr-2 text-bold text-sectionGray hover:text-black text-2xl leading-none font-bold mb-5">
+                    <a href="/categories/news">Travel</a>
+                  </h2>
+                  <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
+                      @foreach ($travelPosts as $item)
+                          <div class="col-span-1 relative">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="413.33" height="232.48" class="aspect-video object-cover mb-2">
+                            <div class="pt-2 pb-8 pl-0 pr-0">
+                                <h3 class="font-bold block text-black text-xl">
+                                  </h3>
+                                  <p class="text-sectionGray line-clamp-3 m-0 mt-2">{{ $item->summary }}</p>
+
+                                  <a href="" class="absolute z-20 tracking-wide uppercase bottom-0 left-0 text-tagGray">
+                                    <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                    <span class="hover:underline hover:text-black">{{ $item->tags->first()->name }}</span>
+                                  </a>
+                                  <a href="/post-detail/{{ $item->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-10"></a>
+                            </div>
+                          </div>
+                      @endforeach
+                  </div>
+                </div>
+              </section>
+        </div>
+
         <div class="container mx-auto max-w-7xl mb-20 bg-newsRed flex gap-5 items-center">
             <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/W6V_f3xIPYM?si=QDRcm6YtVeTAlYTs&amp;controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
             <div width="560" height="176" class="text-white h-44 max-w-xl pb-5">
@@ -245,6 +273,34 @@
                 <h3 class="text-lg mb-4">Kim Jong Un to meet Vladimir Putin in Russia</h3>
                 <p class="text-sm mb-4">What people fail to realize is that North Korea military has an extremely large stock pile of soviet era type artillery and shells, they've been continuing to produce them domestically for ages. We all seen how powerful the soviet era artillery can be that both Ukraine and Russia are using currently, If Russia gets a stockpile on artillery shells, they'll quickly go back to their scorched earth tactics.</p>
             </div>
+        </div>
+
+        <div class="container mx-auto max-w-7xl">
+            <section class="mb-20">
+                <div class="">
+                  <h2 class="before:border-solid before:border-l-2 before:border-orange-500 before:mr-2 text-bold text-sectionGray hover:text-black text-2xl leading-none font-bold mb-5">
+                    <a href="/categories/news">Sounds</a>
+                  </h2>
+                  <div class="grid grid-cols-1 grid-rows-3 sm:grid-rows-none sm:grid-cols-3 gap-5">
+                      @foreach ($soundsPosts as $item)
+                          <div class="col-span-1 relative">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}" width="413.33" height="232.48" class="aspect-video object-cover mb-2">
+                            <div class="pt-2 pb-8 pl-0 pr-0">
+                                <h3 class="font-bold block text-black text-xl">
+                                  </h3>
+                                  <p class="text-sectionGray line-clamp-3 m-0 mt-2">{{ $item->summary }}</p>
+
+                                  <a href="" class="absolute z-20 tracking-wide uppercase bottom-0 left-0 text-tagGray">
+                                    <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                    <span class="hover:underline hover:text-black">{{ $item->tags->first()->name }}</span>
+                                  </a>
+                                  <a href="/post-detail/{{ $item->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-10"></a>
+                            </div>
+                          </div>
+                      @endforeach
+                  </div>
+                </div>
+              </section>
         </div>
     </div>
 

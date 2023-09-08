@@ -128,7 +128,7 @@
 
 
 
-                <div class="max-w-[36.25rem] my-4 p-0 mx-0 align-baseline">
+                <div class="max-w-4xl my-4 p-0 mx-0 align-baseline">
                     <div class="break-words">
                         <p class="text-base font-bold   text-detailBlack">{{ $post->content }}</p>
                         <p class="text-base my-4 text-detailBlack">{{ $post->content }}</p>
@@ -151,7 +151,7 @@
                       </figure>
                 </div>
 
-                <div class="max-w-[36.25rem] my-4 p-0 mx-0 align-baseline">
+                <div class="max-w-4xl my-4 p-0 mx-0 align-baseline">
                     <div>
                         <p class="text-base my-4 text-detailBlack">{{ $post->content }}</p>
                         <p class="text-base my-4 text-detailBlack">{{ $post->content }}</p>
@@ -174,7 +174,7 @@
                       </figure>
                 </div>
 
-                <div class="max-w-[36.25rem] my-4 p-0 mx-0 align-baseline">
+                <div class="max-w-4xl mt-4 mb-8 p-0 mx-0 align-baseline">
                     <div>
                         <p class="text-base my-4 text-detailBlack">{{ $post->content }}</p>
                         <p class="text-base my-4 text-detailBlack">{{ $post->content }}</p>

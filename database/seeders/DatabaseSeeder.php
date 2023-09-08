@@ -56,7 +56,7 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
-        Post::factory(50)->create([
+        Post::factory(250)->create([
                 'location' => 0,
             ]);
 
