@@ -304,6 +304,77 @@
         </div>
     </div>
 
+    <div class="w-full md:bg-gray-100 mb-20">
+        <div class="container mx-auto max-md:my-6 max-w-7xl xl:space-y-10">
+            <section id="top-stories" class="py-20">
+                <div>
+                    <div>
+                        <h2 class="before:border-solid before:border-l-2 before:border-blue-500 before:mr-2 text-bold text-sectionGray text-2xl font-bold my-4"><span>More Around BBC</span></h2>
+                        <div class="md:grid md:grid-cols-3 gap-5">
+                            <div class="md:col-span-1">
+                                <aside class="">
+                                    <div>
+
+                                        @foreach ($topStories->take(12) as $item)
+                                            <div class="flex mb-[5px] border-solid border-b-2 border-gray-200 pb-[8px] items-center">
+                                                <span class="font-bold italic text-2xl md:text-7xl text-gray-400 font-mono">
+                                                    <img src="https://i.pravatar.cc/56?img={{ $topStoryIndex++ }}" alt="{{ $item->short_title }}" class="rounded-full">
+                                                </span>
+                                                <div>
+                                                    <h2 class="mx-4 text-2xl">
+                                                        <a href="/post-detail/{{ $item->id }}" class="hover:underline">{{ $item->short_title }}</a>
+                                                    </h2>
+                                                    <p class="mx-4 text-sm italic text-detailBlack">By <span class="">{{ $item->user->first_name }} {{ $item->user->last_name }}</span></p>
+                                                </div>
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                </aside>
+                            </div>
+                            <div class="md:col-span-2">
+                                    <div class="shadow-md border-black cursor-pointer relative">
+                                        <img src="{{$editorsPicks->first()->image_url}} alt="{{ $editorsPicks->first()->short_title }}" width="846.66" height="476.23" class="object-cover box-border aspect-video h-full w-full">
+                                        <div class="absolute bottom-0 left-0 h-1/2 w-full text-left bg-opacity-90 bg-gradient-to-t from-gray-900 pl-4">
+                                            <h3 class="text-5xl font-semibold mb-3 tracking-wide text-white">{{$editorsPicks->first()->short_title}}</h3>
+                                            <p class="text-subtext line-clamp-3 mb-3 text-base m-0 mt-0.5">{{ $editorsPicks->first()->summary }}</p>
+                                            <a href="" class="absolute z-50 left-4 tracking-wide uppercase text-sm text-subtext">
+                                                <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                                <span class="hover:underline hover:text-white">{{ $editorsPicks->first()->tags->first()->name }}</span>
+                                            </a>
+                                            <a href="/post-detail/{{ $editorsPicks->first()->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-20"></a>
+                                        </div>
+                                    </div>
+                                <div class="my-4 flex flex-col sm:grid sm:grid-cols-2 sm:grid-rows-1 lg:grid-cols-2 lg:grid-rows-1 gap-4">
+                                        @foreach ($editorsPicksBottom->take(2) as $item)
+                                        <div class="max-sm:pb-4 bg-white h-auto shadow-md relative">
+                                            <div class="">
+                                                <img src="{{ $item->image_url }}" alt="{{ $item->title }}" height="152.73" width="271.55" class="max-sm:hidden object-cover box-border aspect-video w-full h-full">
+                                                <div class="pt-3 px-3 pb-12">
+                                                    <h3 class="text-black text-xl m-0 p-0 leading-5">
+                                                        <a href="/" class="gray212121 font-bold">{{ $item->short_title }}</a>
+                                                    </h3>
+                                                    <p class="text-sectionGray line-clamp-3 text-base m-0 mt-0.5 leading-5">{{ $item->summary }}</p>
+                                                    <a href="" class="absolute block z-50 bottom-3 left-3 right-3 mt-0 overflow-hidden whitespace-nowrap text-ellipsis tracking-wide  uppercase text-sm leading-4 text-tagGray">
+                                                        <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
+                                                        <span class="hover:underline hover:text-black">{{ $item->tags->first()->name }}</span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                            <a href="/post-detail/{{ $item->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-20"></a>
+                                        </div>
+                                        <hr class="sm:hidden">
+                                        @endforeach
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
 
     <!-- Swiper JS -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
