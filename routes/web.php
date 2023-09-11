@@ -24,7 +24,7 @@ use function Laravel\Prompts\search;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'indexCached']);
 
 Route::get('/tag-filter/{id}', [TagController::class, 'filterTags'])->name('tag-detail');
 

@@ -158,7 +158,7 @@
                                             </div>
                                             @foreach ($topStories->take(13) as $item)
                                                 <div class="flex mb-[5px] border-solid border-b-2 border-gray-200 pb-[5px] items-center">
-                                                    <span class="font-bold italic text-2xl md:text-7xl text-gray-400 font-mono">{{ $topStoryIndex++ }}</span>
+                                                    <span class="font-bold italic text-2xl md:text-[4.3rem] leading-none text-gray-400 font-mono">{{ $topStoryIndex++ }}</span>
                                                     <h2 class="mx-4 text-2xl">
                                                         <a href="/post-detail/{{ $item->id }}" class="hover:underline">{{ $item->short_title }}</a>
                                                     </h2>

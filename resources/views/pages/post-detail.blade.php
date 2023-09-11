@@ -190,7 +190,7 @@
                     </div>
                 </div>
 
-                <div>
+                <div class="mb-20">
                     <h1 class="text-2xl leading-5 font-bold text-detailBlack mb-8">Related Topics</h1>
                     <span>
                         @foreach ($post->tags as $item)
@@ -200,6 +200,22 @@
                             </a>
                         @endforeach
                     </span>
+                </div>
+
+                <div>
+                    <h1 class="text-2xl leading-5 font-bold text-detailBlack mb-8">Similar posts</h1>
+                    <div class="grid grid-cols-3 gap-5">
+                        @foreach ($topStories->take(6) as $item)
+                            <div class="col-span-1 relative">
+                                <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}">
+                                <a href="/post-detail/{{ $item->id }}" class="">
+                                    <div class="bg-opacity-90 bg-gradient-to-t from-gray-900 absolute left-0 right-0 top-0 bottom-0">
+                                        <h3 class="text-white">{{ $item->title }}</h3>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
                 </div>
             </section>
             <div class="col-span-1">
