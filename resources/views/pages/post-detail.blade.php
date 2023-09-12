@@ -232,6 +232,14 @@
                         @endforeach
                     </div>
 
+                    <div>
+                        @foreach ($topStories as $tem)
+                            <div class="bg-topGray">
+                                <img src="{{ $item->image_url }}" alt="{{ $item->short_title }}">
+                            </div>
+                        @endforeach
+                    </div>
+
                     <div class="mb-8 h-[440px] w-[302px]">
                         <a class="twitter-timeline" data-width="300" data-height="440" data-dnt="true" href="https://twitter.com/BBCWorld?ref_src=twsrc%5Etfw">Tweets by BBCWorld</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
                     </div>

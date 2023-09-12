@@ -17,7 +17,7 @@
                                 </div>
                                 <a href="" class="absolute z-50 left-8 bottom-10 tracking-wide uppercase text-sm text-subtext">
                                     <span class="before:content-['#'] before:font-bold before:text-bbcRed before:mr-2"></span>
-                                    <span class="hover:underline hover:text-white">{{$sortedPost->post->tags->first()->name}}</span>
+                                    <span class="hover:underline hover:text-white">{{ $sortedPost->post->tags->first()->name }}</span>
                                 </a>
                                 <a href="/post-detail/{{ $sortedPost->post->id }}" class="w-full h-full absolute bottom-0 left-0 top-0 right-0 z-20"></a>
                             </div>
